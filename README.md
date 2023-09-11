@@ -2,6 +2,6 @@
 
 This is a school project for CSC 131
 
-**ENTER NAMES HERE**
+**PLEASE ENTER NAMES HERE**
 
 Joaquim Pedroza
