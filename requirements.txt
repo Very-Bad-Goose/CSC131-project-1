@@ -1,6 +1,0 @@
-**Requirements for the Project**
-
-The requirements for the website is an order form that will be used to purchase equipment for a technology company. 
-Similar to an online shop, the user should be able to search for item categories, select items by type, and add them to a cart.
-There will be no actual currency transactions, just a list of items that will be compiled and then sent via email, ticket or PO.
-
