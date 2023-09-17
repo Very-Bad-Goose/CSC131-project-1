@@ -5,5 +5,6 @@ This is a school project for CSC 131
 **PLEASE ENTER NAMES HERE**
 
 Joaquim Pedroza
+Nishan Maharjan
 Harnoor Kaur
 Francisco Ortiz
