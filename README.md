@@ -6,3 +6,4 @@ This is a school project for CSC 131
 
 Joaquim Pedroza
 Harnoor Kaur
+Francisco Ortiz
