@@ -1,4 +1,4 @@
-/* utton */
+/* Button */
 .dropbtn {
   background-color: #04AA6D;
   color: white;
@@ -29,9 +29,9 @@
   display: block;
 }
 
+/* Show dropdown menu and change color on hover */
 .dropdown-content a:hover {background-color: #ddd;}
 
-/* show dropdown menu and change color on hover */
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
