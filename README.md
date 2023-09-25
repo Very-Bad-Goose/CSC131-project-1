@@ -2,7 +2,7 @@
 
 This is a school project for CSC 131
 
-**PLEASE ENTER NAMES HERE**
+**This project is being developed and maintained by:**
 
 Joaquim Pedroza
 
