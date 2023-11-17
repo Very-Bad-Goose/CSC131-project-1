@@ -1,16 +1,9 @@
-info:
-	
+users:
+	vtsadmin3
+	!Cod9de039
 
-users: 
-	admin
-	adminPassword
+	VTSInventory
+	D0N0tus3
 
-	user
-	password
-
-	root
-	ValleyTechSystems2007
-
-you should be able to run the testdbconnection.js file from your
-command prompt with "node testdbconnection.js" inside the project
-root. Let Tyler know if you cannot connect for any reason.
+url:
+	vts-inventory.database.usgovcloudapi.net
