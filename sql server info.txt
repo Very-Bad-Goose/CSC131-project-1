@@ -10,3 +10,7 @@ users:
 
 	root
 	ValleyTechSystems2007
+
+you should be able to run the testdbconnection.js file from your
+command prompt with "node testdbconnection.js" inside the project
+root. Let Tyler know if you cannot connect for any reason.
