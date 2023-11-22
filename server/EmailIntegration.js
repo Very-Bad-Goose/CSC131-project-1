@@ -21,7 +21,7 @@ const mail = {
   to: "maharjannishan02@gmail.com", // list of receivers
   subject: "Vts Inventory Request", // Subject line
   text: "Vts Inventory Request Recieved?", // plain text body
-  html: "<b>VTS</b>", // html body
+  html:getMessage(), // html body
   // attachments: [
   // we can add tickets as a pdf here
   //   {
@@ -30,6 +30,8 @@ const mail = {
   //   }
   // ]
 };
+
+
 
 const sendMail = async (transporter, mail) => {
   try {
