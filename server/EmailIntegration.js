@@ -18,7 +18,7 @@ const mail = {
     name: "vtssupport",
     address: "vts.inventory@gmail.com",
   }, // sender address
-  to: "maharjannishan02@gmail.com", // list of receivers
+  to: "joaquim.pedroza@vts-i.com", // list of receivers
   subject: "Vts Inventory Request", // Subject line
   text: "Vts Inventory Request Recieved?", // plain text body
   html:getMessage(), // html body
