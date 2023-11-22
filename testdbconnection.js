@@ -9,9 +9,8 @@ const config = {
         // default uses multiple Azur authentification methods
         type: 'default',
         options: {
-            // temp names, will need to be filled later
-            userName: 'test',
-            password: 'test'
+            userName: 'VTSInventory',
+            password: 'D0N0tus3'
         }
     },
 };
