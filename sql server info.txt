@@ -1,0 +1,9 @@
+users:
+	vtsadmin3
+	!Cod9de039
+
+	VTSInventory
+	D0N0tus3
+
+url:
+	vts-inventory.database.usgovcloudapi.net
