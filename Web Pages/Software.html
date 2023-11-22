@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VTS Inventory Page</title>
+  <style>
+    /* Global styles */
+    body {
+      font-family: sans-serif;
+      background-color: white;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* Header strip */
+    .header-strip {
+      background-color: darkblue;
+      color: white;
+      padding: 40px;
+      width: 100%;
+      position: relative;
+    }
+
+    .header-strip img {
+      width: auto;
+      height: auto;
+      max-width: 160px;
+      max-height: 80px;
+      margin: -40px 0 0 0;
+      position: absolute;
+    }
+
+    .back-arrow {
+      position: absolute;
+      top: 120px; /* Adjusted position */
+      left: 10px;
+    }
+
+    .back-arrow img {
+      width: 50px;
+      height: 50px;
+    }
+
+    /* Shop items */
+    .shop-item {
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+      text-align: center;
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .item-image {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+      max-height: 200px;
+    }
+
+    .item-title {
+      margin-top: auto;
+    }
+
+    .item-button {
+      margin-top: auto;
+    }
+
+    .quantity-control {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 60%;
+      margin-top: 10px;
+    }
+
+    .quantity-control button {
+      padding: 5px 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .quantity-input {
+      width: 40px;
+      text-align: center;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header-strip">
+    <img src="https://raw.githubusercontent.com/Very-Bad-Goose/CSC131-project-1/main/Logos/VTS_White.png"
+      alt="VTS Powered by Voyager logo">
+    <!--connect back button to previous page-->
+    <a href="" class="back-arrow">
+      <img
+        src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/Back%20Arrow.png?raw=true"
+        alt="back arrow">
+    </a>
+  </div>
+
+  <!-- Shop items -->
+  <div class="shop-item">
+    <img class="item-image"
+      src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/MS%20Project.png?raw=true"
+      alt="Microsoft Project">
+    <h3 class="item-title">Microsoft Project</h3>
+    <div class="quantity-control">
+      <button class="item-button" onclick="changeQuantity(this, -1)">-</button>
+      <input class="quantity-input" type="number" value="1" min="1">
+      <button class="item-button" onclick="changeQuantity(this, 1)">+</button>
+    </div>
+    <button class="item-button">Add to Cart</button>
+  </div>
+
+  <div class="shop-item">
+    <img class="item-image"
+      src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/MS%20Visio.png?raw=true"
+      alt="Microsoft Visio">
+    <h3 class="item-title">Microsoft Visio</h3>
+    <div class="quantity-control">
+      <button class="item-button" onclick="changeQuantity(this, -1)">-</button>
+      <input class="quantity-input" type="number" value="1" min="1">
+      <button class="item-button" onclick="changeQuantity(this, 1)">+</button>
+    </div>
+    <button class="item-button">Add to Cart</button>
+  </div>
+
+  <div class="shop-item">
+    <img class="item-image"
+      src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/Adobe%20Acrobat.png?raw=true"
+      alt="Adobe Pro">
+    <h3 class="item-title">Adobe Pro</h3>
+    <div class="quantity-control">
+      <button class="item-button" onclick="changeQuantity(this, -1)">-</button>
+      <input class="quantity-input" type="number" value="1" min="1">
+      <button class="item-button" onclick="changeQuantity(this, 1)">+</button>
+    </div>
+    <button class="item-button">Add to Cart</button>
+  </div>
+
+  <div class="shop-item">
+    <img class="item-image"
+      src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/VMWarePro.png?raw=true"
+      alt="VMWare Pro">
+    <h3 class="item-title">VMWare Pro</h3>
+    <div class="quantity-control">
+      <button class="item-button" onclick="changeQuantity(this, -1)">-</button>
+      <input class="quantity-input" type="number" value="1" min="1">
+      <button class="item-button" onclick="changeQuantity(this, 1)">+</button>
+    </div>
+    <button class="item-button">Add to Cart</button>
+  </div>
+
+  <script>
+    function changeQuantity(button, change) {
+      const inputElement = button.parentNode.querySelector('.quantity-input');
+      let currentQuantity = parseInt(inputElement.value);
+      inputElement.value = Math.max(1, currentQuantity + change);
+    }
+  </script>
+
+</body>
+
+</html>

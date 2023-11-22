@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Valley Tech Systems Requisition Orders</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/additional.css" rel="stylesheet" />
+        <link href="css/formcss.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav id="mainnav" class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a id="titletext" class="navbar-brand" href="#!"><img id="vslogo" src="vs.png">Requisition Order System</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <!-- <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li> -->
+                        <!-- <li class="nav-item"><a class="nav-link" href="#!">Help</a></li> -->
+                        <li class="nav-item dropdown">
+                            <!-- <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a> -->
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <!-- <li><a class="dropdown-item" href="#!">All Products</a></li> -->
+                                <!-- <li><hr class="dropdown-divider" /></li> -->
+                                <!-- <li><a class="dropdown-item" href="#!">Popular Items</a></li> -->
+                                <!-- <li><a class="dropdown-item" href="#!">New Arrivals</a></li> -->
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <button id="cartBtn" class="btn btn-outline-dark" type="submit">
+                            <i class="bi-cart-fill me-1"></i>
+                            Cart
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center">
+                    <h1 class="display-4 fw-bolder">Finalize Request</h1>
+                    <p class="lead fw-normal mb-0">submit to send request for manager approval</p>
+                </div>
+            </div>
+        </header>
+        <!-- Section-->
+        <section class="py-5">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <!-- JQUERY STEP -->
+
+                    <form>
+                        <!-- 2 column grid layout with text inputs for the first and last names -->
+                        <div class="row mb-4">
+                          <div class="col">
+                            <div class="form-outline">
+                              <input type="text" id="form6Example1" class="form-control" />
+                              <label class="form-label" for="form6Example1">First name</label>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="form-outline">
+                              <input type="text" id="form6Example2" class="form-control" />
+                              <label class="form-label" for="form6Example2">Last name</label>
+                            </div>
+                          </div>
+                        </div>
+                      
+                        <!-- Text input -->
+                        <div class="form-outline mb-4">
+                          <input type="text" id="form6Example3" class="form-control" />
+                          <label class="form-label" for="form6Example3">Field1</label>
+                        </div>
+                      
+                        <!-- Text input -->
+                        <div class="form-outline mb-4">
+                          <input type="text" id="form6Example4" class="form-control" />
+                          <label class="form-label" for="form6Example4">Field2</label>
+                        </div>
+                      
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                          <input type="email" id="form6Example5" class="form-control" />
+                          <label class="form-label" for="form6Example5">Email</label>
+                        </div>
+                      
+                        <!-- Number input -->
+                        <div class="form-outline mb-4">
+                          <input type="number" id="form6Example6" class="form-control" />
+                          <label class="form-label" for="form6Example6">Quantity</label>
+                        </div>
+
+                        <!-- Number input -->
+                        <div class="form-outline mb-4">
+
+            
+                            <!-- <input type="dropdown" id="form6Example6" class="form-control" /> -->
+                            <label class="form-label" for="form6Example6">Department</label>
+                            <select name="cars" id="cars">
+                                <option value="volvo">1</option>
+                                <option value="saab">2</option>
+                                <option value="mercedes">3</option>
+                                <option value="audi">4</option>
+                            </select>
+                          </div>
+                      
+                        <!-- Message input -->
+                        <div class="form-outline mb-4">
+                          <textarea class="form-control" id="form6Example7" rows="4"></textarea>
+                          <label class="form-label" for="form6Example7">Notes</label>
+                        </div>
+                    
+                      
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn-block mb-4">Send Request</button>
+                      </form>
+
+                    
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="py-5">
+            <!-- <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Valley Tech Systems</p></div> -->
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script src="js/formjs.js"></script>
+    </body>
+</html>
