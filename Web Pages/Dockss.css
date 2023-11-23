@@ -1,0 +1,106 @@
+/* Basic styles */
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.959);
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+.header-strip {
+    background-color: darkblue;
+    color: white;
+    padding: 40px;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent content from overflowing the container */
+}
+
+.header-strip img {
+    width: 160px;
+    height: auto;
+    max-width: 100%;
+    margin-top: -40px;
+    position: absolute;
+}
+
+.docks-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin: 0 -10px; /* Add negative margin to counteract padding */
+    margin-left: 20px; /* Add left margin for the content */
+}
+.inventory-heading{
+    margin: 15px 0px 15px 25px;
+}
+
+.docks {
+    flex: 0 0 calc(33.33% - 20px); /* Adjust the width to accommodate margins */
+    max-width: 275px;
+    margin: 20px 10px; /* Apply proper spacing */
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.947);
+    box-sizing: border-box;
+}
+
+.docks img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    max-height: 200px;
+}
+
+.docks h4 {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.add-to-cart-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align items in the section to the start */
+    margin-top: 15px;
+}
+
+.quantity-input {
+    width: 80px;
+    margin-right: 10px;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.add-to-cart-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    line-height: 1;
+    height: auto;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 5px;
+    margin-left: 5px; /* Add left margin for spacing */
+}
+
+.add-to-cart-btn:hover {
+    background-color: #0056b3;
+}
+
+.docks:hover {
+    transform: translateY(-5px);
+}
