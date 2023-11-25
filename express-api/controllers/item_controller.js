@@ -15,7 +15,20 @@ export const getItems = (req,res)=>{
     })
 };
 
-
+export const addItem = (req,res)=>{
+    const {id, archetype, category, manufacturer, item_name, imagepath, price} = req.body;
+    pool.query(queries.checkIDExists,[id],(error, results)=>{
+        if (results.rows.length){
+            res.send("item already exists");
+        }else{
+            pool.query(queries.addItem,[archetype, category, manufacturer, item_name, imagepath, price],(error, results)=>{
+                if (error) throw error;
+                res.status(201).send("item created successfully");
+                console.log("item created");
+            })
+        }
+    });
+};
 
 export const createItem = (req,res)=>{
     console.log('creating item');
@@ -62,7 +75,7 @@ export const deleteItem = (req,res)=>{
 const meths = {
     getItems,
     getItem,
-    // addItem,
+    addItem,
     deleteItem,
     updateItem
 };
