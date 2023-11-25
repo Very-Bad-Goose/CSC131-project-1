@@ -1,0 +1,34 @@
+<!-- examplePage.ejs -->
+
+<!-- views/examplePage.ejs -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example Page</title>
+</head>
+
+<%- include('header') %>
+
+<main>
+    <h2>Content of the Example Page</h2>
+    <!-- Other content -->
+    <h1>Welcome to Example Page</h1>
+    <p>This is an example page rendered with data:</p>
+    <pre><%= JSON.stringify(data, null, 2) %></pre>
+</main>
+
+<!-- Additional footer content, etc. -->
+</body>
+</html>
+
+
+<!-- <body>
+    <h1>Welcome to Example Page</h1>
+    <p>This is an example page rendered with data:</p>
+    <pre><%= JSON.stringify(data, null, 2) %></pre>
+</body>
+</html> -->
