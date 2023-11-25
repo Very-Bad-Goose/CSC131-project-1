@@ -1,65 +1,40 @@
-import { v4 as uuidv4 } from 'uuid';
-let items = [
-    {
-        "archtype":"stuff",
-        "category":"pc",
-        "manufacturer":"Voyager Space",
-        "name":"pic#1",
-        "imagepath":"https://picsum.photos/id/1/200/300",
-        id:uuidv4()
-    },
-    {
-        "archtype":"stuff",
-        "category":"monitor",
-        "manufacturer":"Voyager Space",
-        "name":"pic#2",
-        "imagepath":"https://picsum.photos/id/1/200/300",
-        id:uuidv4()
-    },
-    {
-        "archtype":"stuff",
-        "category":"misc",
-        "manufacturer":"Voyager Space",
-        "name":"pic#3",
-        "imagepath":"https://picsum.photos/id/1/200/300",
-        id:uuidv4()
-    },
-    {
-        "archtype":"stuff",
-        "category":"pens",
-        "manufacturer":"Voyager Space",
-        "name":"pic#4",
-        "imagepath":"https://picsum.photos/id/1/200/300",
-        id:uuidv4()
-    },
-    {
-        "archtype":"stuff",
-        "category":"office",
-        "manufacturer":"Voyager Space",
-        "name":"pic#5",
-        "imagepath":"https://picsum.photos/id/1/200/300",
-        id:uuidv4()
-    },
-    {
-        "archtype":"stuff",
-        "category":"desk",
-        "manufacturer":"Voyager Space",
-        "name":"pic#6",
-        "imagepath":"https://picsum.photos/id/1/200/300",
-        id:uuidv4()
-    }
-];
+// const pool = require('../config/postgres_conn.js');
+// const queries = require("../models/queries");
+import pool from '../config/postgres_conn.js';
+import queries from '../models/item_queries.js';
+
+// export const getItems = (req,res)=>{
+//     console.log('getting all items');
+//     res.send(items);
+// }
 
 export const getItems = (req,res)=>{
-    console.log('getting all items');
-    res.send(items);
-}
+    pool.query(queries.getItems,(error, results)=>{
+        if (error) throw error;
+        res.status(200).json(results.rows);
+    })
+};
+
+export const addItem = (req,res)=>{
+    const {id, archetype, category, manufacturer, item_name, imagepath, price} = req.body;
+    pool.query(queries.checkIDExists,[id],(error, results)=>{
+        if (results.rows.length){
+            res.send("item already exists");
+        }else{
+            pool.query(queries.addItem,[archetype, category, manufacturer, item_name, imagepath, price],(error, results)=>{
+                if (error) throw error;
+                res.status(201).send("item created successfully");
+                console.log("item created");
+            })
+        }
+    });
+};
 
 export const createItem = (req,res)=>{
     console.log('creating item');
     const item = req.body;
-    items.push({...item, id:uuidv4()});
-    res.send(`ticket ${item.id} created`);
+    items.push({...item});
+    res.send(`item ${item.id} created`);
 };
 
 export const getItem = (req,res)=>{
@@ -96,3 +71,65 @@ export const deleteItem = (req,res)=>{
     console.log(req.params);
     res.send(`item ${id} deleted`);
 }
+
+const meths = {
+    getItems,
+    getItem,
+    addItem,
+    deleteItem,
+    updateItem
+};
+
+export default meths;
+
+// import { v4 as uuidv4 } from 'uuid';
+// let items = [
+//     {
+//         "archtype":"stuff",
+//         "category":"pc",
+//         "manufacturer":"Voyager Space",
+//         "name":"pic#1",
+//         "imagepath":"https://picsum.photos/id/1/200/300",
+//         id:uuidv4()
+//     },
+//     {
+//         "archtype":"stuff",
+//         "category":"monitor",
+//         "manufacturer":"Voyager Space",
+//         "name":"pic#2",
+//         "imagepath":"https://picsum.photos/id/1/200/300",
+//         id:uuidv4()
+//     },
+//     {
+//         "archtype":"stuff",
+//         "category":"misc",
+//         "manufacturer":"Voyager Space",
+//         "name":"pic#3",
+//         "imagepath":"https://picsum.photos/id/1/200/300",
+//         id:uuidv4()
+//     },
+//     {
+//         "archtype":"stuff",
+//         "category":"pens",
+//         "manufacturer":"Voyager Space",
+//         "name":"pic#4",
+//         "imagepath":"https://picsum.photos/id/1/200/300",
+//         id:uuidv4()
+//     },
+//     {
+//         "archtype":"stuff",
+//         "category":"office",
+//         "manufacturer":"Voyager Space",
+//         "name":"pic#5",
+//         "imagepath":"https://picsum.photos/id/1/200/300",
+//         id:uuidv4()
+//     },
+//     {
+//         "archtype":"stuff",
+//         "category":"desk",
+//         "manufacturer":"Voyager Space",
+//         "name":"pic#6",
+//         "imagepath":"https://picsum.photos/id/1/200/300",
+//         id:uuidv4()
+//     }
+// ];
