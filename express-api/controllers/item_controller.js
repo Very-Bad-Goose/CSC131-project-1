@@ -22,19 +22,28 @@ export const newItem = (req,res)=>{
 };
 
 
+// export const addItem = (req,res)=>{
+//     const {id, archetype, category, manufacturer, item_name, imagepath, price} = req.body;
+//     pool.query(queries.checkIDExists,[id],(error, results)=>{
+//         if (results.rows.length){
+//             res.send("item already exists");
+//         }else{
+//             pool.query(queries.addItem,[archetype, category, manufacturer, item_name, imagepath, price],(error, results)=>{
+//                 if (error) throw error;
+//                 res.status(201).send("item created successfully");
+//                 console.log("item created");
+//             })
+//         }
+//     });
+// };
 export const addItem = (req,res)=>{
-    const {id, archetype, category, manufacturer, item_name, imagepath, price} = req.body;
-    pool.query(queries.checkIDExists,[id],(error, results)=>{
-        if (results.rows.length){
-            res.send("item already exists");
-        }else{
-            pool.query(queries.addItem,[archetype, category, manufacturer, item_name, imagepath, price],(error, results)=>{
-                if (error) throw error;
-                res.status(201).send("item created successfully");
-                console.log("item created");
-            })
-        }
+    const {archetype, category, manufacturer, item_name, imagepath, price} = req.body;
+    pool.query(queries.addItem,[archetype, category, manufacturer, item_name, imagepath, price],(error, results)=>{
+        if (error) throw error;
+        res.status(201).send("item created successfully");
+        console.log("item created");
     });
+    // res.send(`Received form data: Param1 - ${archetype}, Param2 - ${category}`);
 };
 
 export const createItem = (req,res)=>{
