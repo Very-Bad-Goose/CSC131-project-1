@@ -1,13 +1,27 @@
+// const pool = require('../config/postgres_conn.js');
+// const queries = require("../models/queries");
+import pool from '../config/postgres_conn.js';
+import queries from '../models/item_queries.js';
+
+// export const getItems = (req,res)=>{
+//     console.log('getting all items');
+//     res.send(items);
+// }
+
 export const getItems = (req,res)=>{
-    console.log('getting all items');
-    res.send(items);
-}
+    pool.query(queries.getItems,(error, results)=>{
+        if (error) throw error;
+        res.status(200).json(results.rows);
+    })
+};
+
+
 
 export const createItem = (req,res)=>{
     console.log('creating item');
     const item = req.body;
-    items.push({...item, id:uuidv4()});
-    res.send(`ticket ${item.id} created`);
+    items.push({...item});
+    res.send(`item ${item.id} created`);
 };
 
 export const getItem = (req,res)=>{
@@ -45,6 +59,15 @@ export const deleteItem = (req,res)=>{
     res.send(`item ${id} deleted`);
 }
 
+const meths = {
+    getItems,
+    getItem,
+    // addItem,
+    deleteItem,
+    updateItem
+};
+
+export default meths;
 
 // import { v4 as uuidv4 } from 'uuid';
 // let items = [
