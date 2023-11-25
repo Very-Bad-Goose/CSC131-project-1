@@ -17,6 +17,11 @@ export const getItems = (req,res)=>{
     
 };
 
+export const newItem = (req,res)=>{
+    res.status(200).render('../views/vtsAddItem');
+};
+
+
 export const addItem = (req,res)=>{
     const {id, archetype, category, manufacturer, item_name, imagepath, price} = req.body;
     pool.query(queries.checkIDExists,[id],(error, results)=>{
@@ -41,7 +46,7 @@ export const createItem = (req,res)=>{
 
 export const getItem = (req,res)=>{
     const { id } = req.params;
-    const foundItem = items.find((item)=>item.id==id);
+    // const foundItem = items.find((item)=>item.id==id);
     console.log(`finding ${req.params}`);
     res.send(foundItem);
 }
@@ -79,7 +84,8 @@ const meths = {
     getItem,
     addItem,
     deleteItem,
-    updateItem
+    updateItem,
+    newItem
 };
 
 export default meths;
