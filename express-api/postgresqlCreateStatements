@@ -1,0 +1,20 @@
+CREATE TABLE tickets (
+  id SERIAL PRIMARY KEY,
+  time_stamp TIMESTAMPTZ NOT NULL UNIQUE,
+  requestedby VARCHAR(255) NOT NULL,
+  receiver VARCHAR(255),
+  contents TEXT NOT NULL,
+  app_status BOOLEAN NOT NULL,
+  notes TEXT NOT NULL,
+  dept INT NOT NULL
+);
+
+CREATE TABLE items (
+  id SERIAL PRIMARY KEY,
+  archetype VARCHAR(255),
+  category VARCHAR(255),
+  manufacturer VARCHAR(255),
+  item_name VARCHAR(255),
+  imagepath VARCHAR(255),
+  price DOUBLE PRECISION
+);
