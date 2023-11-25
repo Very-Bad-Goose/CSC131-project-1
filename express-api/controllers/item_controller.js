@@ -1,55 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
-let items = [
-    {
-        "archtype":"stuff",
-        "category":"pc",
-        "manufacturer":"Voyager Space",
-        "name":"pic#1",
-        "imagepath":"https://picsum.photos/id/1/200/300",
-        id:uuidv4()
-    },
-    {
-        "archtype":"stuff",
-        "category":"monitor",
-        "manufacturer":"Voyager Space",
-        "name":"pic#2",
-        "imagepath":"https://picsum.photos/id/1/200/300",
-        id:uuidv4()
-    },
-    {
-        "archtype":"stuff",
-        "category":"misc",
-        "manufacturer":"Voyager Space",
-        "name":"pic#3",
-        "imagepath":"https://picsum.photos/id/1/200/300",
-        id:uuidv4()
-    },
-    {
-        "archtype":"stuff",
-        "category":"pens",
-        "manufacturer":"Voyager Space",
-        "name":"pic#4",
-        "imagepath":"https://picsum.photos/id/1/200/300",
-        id:uuidv4()
-    },
-    {
-        "archtype":"stuff",
-        "category":"office",
-        "manufacturer":"Voyager Space",
-        "name":"pic#5",
-        "imagepath":"https://picsum.photos/id/1/200/300",
-        id:uuidv4()
-    },
-    {
-        "archtype":"stuff",
-        "category":"desk",
-        "manufacturer":"Voyager Space",
-        "name":"pic#6",
-        "imagepath":"https://picsum.photos/id/1/200/300",
-        id:uuidv4()
-    }
-];
-
 export const getItems = (req,res)=>{
     console.log('getting all items');
     res.send(items);
@@ -96,3 +44,56 @@ export const deleteItem = (req,res)=>{
     console.log(req.params);
     res.send(`item ${id} deleted`);
 }
+
+
+// import { v4 as uuidv4 } from 'uuid';
+// let items = [
+//     {
+//         "archtype":"stuff",
+//         "category":"pc",
+//         "manufacturer":"Voyager Space",
+//         "name":"pic#1",
+//         "imagepath":"https://picsum.photos/id/1/200/300",
+//         id:uuidv4()
+//     },
+//     {
+//         "archtype":"stuff",
+//         "category":"monitor",
+//         "manufacturer":"Voyager Space",
+//         "name":"pic#2",
+//         "imagepath":"https://picsum.photos/id/1/200/300",
+//         id:uuidv4()
+//     },
+//     {
+//         "archtype":"stuff",
+//         "category":"misc",
+//         "manufacturer":"Voyager Space",
+//         "name":"pic#3",
+//         "imagepath":"https://picsum.photos/id/1/200/300",
+//         id:uuidv4()
+//     },
+//     {
+//         "archtype":"stuff",
+//         "category":"pens",
+//         "manufacturer":"Voyager Space",
+//         "name":"pic#4",
+//         "imagepath":"https://picsum.photos/id/1/200/300",
+//         id:uuidv4()
+//     },
+//     {
+//         "archtype":"stuff",
+//         "category":"office",
+//         "manufacturer":"Voyager Space",
+//         "name":"pic#5",
+//         "imagepath":"https://picsum.photos/id/1/200/300",
+//         id:uuidv4()
+//     },
+//     {
+//         "archtype":"stuff",
+//         "category":"desk",
+//         "manufacturer":"Voyager Space",
+//         "name":"pic#6",
+//         "imagepath":"https://picsum.photos/id/1/200/300",
+//         id:uuidv4()
+//     }
+// ];

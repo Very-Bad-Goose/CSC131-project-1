@@ -1,55 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
-let tickets = [
-    {
-        "timestamp":"2023-11-14",
-        "sender":"Bejan",
-        "receiver":"Voyager Space",
-        "content":"Alienware laptop, LG monitor, power adapter",
-        "status":"unapproved",
-        id:uuidv4()
-    },
-    {
-        "timestamp":"2023-11-14",
-        "sender":"Donatello",
-        "receiver":"Voyager Space",
-        "content":"Alienware laptop, LG monitor, power adapter",
-        "status":"unapproved",
-        id:uuidv4()
-    },
-    {
-        "timestamp":"2023-11-14",
-        "sender":"Michaelangelo",
-        "receiver":"Voyager Space",
-        "content":"Alienware laptop, LG monitor, power adapter",
-        "status":"unapproved",
-        id:uuidv4()
-    },
-    {
-        "timestamp":"2023-11-14",
-        "sender":"Leonardo",
-        "receiver":"Voyager Space",
-        "content":"Alienware laptop, LG monitor, power adapter",
-        "status":"unapproved",
-        id:uuidv4()
-    },
-    {
-        "timestamp":"2023-11-14",
-        "sender":"Raphael",
-        "receiver":"Voyager Space",
-        "content":"Alienware laptop, LG monitor, power adapter",
-        "status":"unapproved",
-        id:uuidv4()
-    },
-    {
-        "timestamp":"2023-11-14",
-        "sender":"Splinter",
-        "receiver":"Voyager Space",
-        "content":"Alienware laptop, LG monitor, power adapter",
-        "status":"unapproved",
-        id:uuidv4()
-    }
-];
-
 export const getTickets = (req,res)=>{
     console.log('getting all tickets');
     res.send(tickets);
@@ -96,3 +44,55 @@ export const deleteTicket = (req,res)=>{
     console.log(req.params);
     res.send(`ticket ${id} deleted`);
 }
+
+// import { v4 as uuidv4 } from 'uuid';
+// let tickets = [
+//     {
+//         "timestamp":"2023-11-14",
+//         "sender":"Bejan",
+//         "receiver":"Voyager Space",
+//         "content":"Alienware laptop, LG monitor, power adapter",
+//         "status":"unapproved",
+//         id:uuidv4()
+//     },
+//     {
+//         "timestamp":"2023-11-14",
+//         "sender":"Donatello",
+//         "receiver":"Voyager Space",
+//         "content":"Alienware laptop, LG monitor, power adapter",
+//         "status":"unapproved",
+//         id:uuidv4()
+//     },
+//     {
+//         "timestamp":"2023-11-14",
+//         "sender":"Michaelangelo",
+//         "receiver":"Voyager Space",
+//         "content":"Alienware laptop, LG monitor, power adapter",
+//         "status":"unapproved",
+//         id:uuidv4()
+//     },
+//     {
+//         "timestamp":"2023-11-14",
+//         "sender":"Leonardo",
+//         "receiver":"Voyager Space",
+//         "content":"Alienware laptop, LG monitor, power adapter",
+//         "status":"unapproved",
+//         id:uuidv4()
+//     },
+//     {
+//         "timestamp":"2023-11-14",
+//         "sender":"Raphael",
+//         "receiver":"Voyager Space",
+//         "content":"Alienware laptop, LG monitor, power adapter",
+//         "status":"unapproved",
+//         id:uuidv4()
+//     },
+//     {
+//         "timestamp":"2023-11-14",
+//         "sender":"Splinter",
+//         "receiver":"Voyager Space",
+//         "content":"Alienware laptop, LG monitor, power adapter",
+//         "status":"unapproved",
+//         id:uuidv4()
+//     }
+// ];
