@@ -1,5 +1,5 @@
 import express from 'express';
-import { addItem,getItems,newItem } from '../controllers/item_controller.js';
+import { addItem,getItems,newItem,deleteItem } from '../controllers/item_controller.js';
 
 const router = express.Router();
 
@@ -8,7 +8,7 @@ router.get('/', getItems);
 router.post('/', addItem);
 // router.get('/:id', getItem);
 // router.patch('/:id', updateItem);
-// router.delete('/:id', deleteItem);
+router.post('/del/:id', deleteItem);
 
 export default router;
 

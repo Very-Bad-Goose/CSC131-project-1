@@ -84,6 +84,23 @@ export const addItem = (req,res)=>{
 //     res.send(`item ${id} updated with ${req.params}`);
 // }
 
+export const deleteItem = (req,res)=>{
+    const id = parseInt(req.body.id);
+    // res.send(`item ${id}`);
+    // res.send(req.body.id);
+    pool.query(queries.getItem,[id],(error, results)=>{
+        if (!results.rows.length){
+            res.send(`student ${id} doesn't exist`);
+        }else{
+            pool.query(queries.deleteItem,[id],(error, results)=>{
+                if (error) throw error;
+                res.status(200).redirect("/items");
+            })
+        }
+
+    })
+};
+
 // export const deleteItem = (req,res)=>{
 //     const { id } = req.params;
 //     items = items.filter((item)=>item.id != id);
@@ -94,7 +111,8 @@ export const addItem = (req,res)=>{
 const meths = {
     getItems,
     addItem,
-    newItem
+    newItem,
+    deleteItem
 };
 
 export default meths;
