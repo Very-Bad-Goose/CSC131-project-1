@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to the VTS Inventory Site</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f8f8f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .item-subtype-page {
+      margin: 0 auto;
+      width: 80%;
+      padding: 20px;
+    }
+
+    .header-strip {
+      background-color: darkblue;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      justify-content: space-between; /* Align items to the right and left */
+      align-items: center; /* Vertically center items */
+    }
+
+    .header-strip img {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+
+    .header-strip h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .company-logo img {
+      width: 50px;
+      height: auto;
+      margin-right: 10px; /* Add margin for spacing between the logo and text */
+    }
+
+    .item-subtype-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      font-size: 20px;
+
+    }
+
+    .item-subtype {
+      width: 30%;
+      text-align: center;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .item-subtype img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: the 764px) {
+      .item-subtype-container {
+        flex-direction: column;
+      }
+
+      .item-subtype {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="item-subtype-page">
+    <div class="header-strip">
+      <div class="company-logo">
+        <img src="https://raw.githubusercontent.com/Very-Bad-Goose/CSC131-project-1/main/Logos/VTS_White.png" alt="Company Logo">
+      </div>
+      <h1>Welcome to the VTS Inventory Site</h1>
+      <img src="https://raw.githubusercontent.com/Very-Bad-Goose/CSC131-project-1/b3bc971e7c4f7aa4686d2917277ce8195b6f7f06/Inventory%20Images/cart.svg" alt="Shopping Cart" onclick="redirectToCartPage()">
+    </div>
+
+    <div class="item-subtype-container">
+      <div class="item-subtype">
+        <img src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/Dell%20Precision%207680.png?raw=true" alt="Laptop">
+        <p>Laptops</p>
+      </div>
+
+      <div class="item-subtype">
+        <img src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/HP%20M34D%2034%20Curved%20Monitor.png?raw=true" alt="Monitor">
+        <p>Monitors</p>
+      </div>
+
+      <div class="item-subtype">
+        <img src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/Dell%20WD19DC%20Dock.png?raw=true" alt="Dock">
+        <p>Docks</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function redirectToCartPage() {
+      // Add logic to redirect to the shopping cart page
+      // window.location.href = 'cart_page.html';
+    }
+  </script>
+</body>
+</html>
