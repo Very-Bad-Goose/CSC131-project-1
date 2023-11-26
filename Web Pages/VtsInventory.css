@@ -29,7 +29,7 @@ body {
     position: absolute;
 }
 
-.docks-container {
+.inventory-container {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
@@ -40,7 +40,7 @@ body {
     margin: 15px 0px 15px 25px;
 }
 
-.docks {
+.inventory {
     flex: 0 0 calc(33.33% - 20px); /* Adjust the width to accommodate margins */
     max-width: 275px;
     margin: 20px 10px; /* Apply proper spacing */
@@ -53,14 +53,13 @@ body {
     box-sizing: border-box;
 }
 
-.docks img {
+.inventory img {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
-    max-height: 200px;
+    width: 100%; /* Set the width to fill the container */
 }
-
-.docks h4 {
+.inventory h4 {
     margin-top: 10px;
     font-size: 18px;
 }
@@ -101,6 +100,6 @@ body {
     background-color: #0056b3;
 }
 
-.docks:hover {
+.inventory:hover {
     transform: translateY(-5px);
 }
