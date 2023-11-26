@@ -1,14 +1,14 @@
 import express from 'express';
-import { addItem,getItems,getItem,updateItem,deleteItem,newItem } from '../controllers/item_controller.js';
+import { addItem,getItems,newItem } from '../controllers/item_controller.js';
 
 const router = express.Router();
 
 router.get('/new', newItem);
 router.get('/', getItems);
 router.post('/', addItem);
-router.get('/:id', getItem);
-router.patch('/:id', updateItem);
-router.delete('/:id', deleteItem);
+// router.get('/:id', getItem);
+// router.patch('/:id', updateItem);
+// router.delete('/:id', deleteItem);
 
 export default router;
 
