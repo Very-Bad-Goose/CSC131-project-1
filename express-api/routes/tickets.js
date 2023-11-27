@@ -3,6 +3,7 @@ import {
     // createTicket,
     newTicket,
     getTickets,
+    getTicketByID,
     addTicket,
     // getTicket,
     // updateTicket,
@@ -13,6 +14,7 @@ const router = express.Router();
 
 router.get('/new', newTicket);
 router.get('/', getTickets);
+router.get('/:id', getTicketByID);
 router.post('/', addTicket);
 // router.post('/', createTicket);
 // router.get('/:id', getTicket);

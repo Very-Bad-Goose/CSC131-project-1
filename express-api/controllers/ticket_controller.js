@@ -1,33 +1,40 @@
 import pool from '../config/postgres_conn.js';
 import queries from '../models/ticket_queries.js';
 
+//CREATE
+//send the page/form for creating new
+export const newTicket = (req,res)=>{
+    res.status(200).render('../views/vtsAddTicket');
+};
+//action to create new in db
+export const addTicket = (req,res)=>{
+    const {requestedby,receiver,contents,notes,dept} = req.body;
+    pool.query(queries.addTicket,[requestedby,receiver,contents,notes,dept],(error, results)=>{
+        if (error) throw error;
+        console.log("Ticket created", [requestedby,receiver,contents,notes,dept]);
+        res.status(201).redirect("/Tickets");
+    });
+};
+//READ
+//ticket index
 export const getTickets = (req,res)=>{
     pool.query(queries.getTickets,(error, results)=>{
         if (error) throw error;
         // res.status(200).json(results.rows);
         res.status(200).render('../views/vtsTicketPage01', { data: results.rows });
     })
-    
 };
-
-export const newTicket = (req,res)=>{
-    res.status(200).render('../views/vtsAddTicket');
-};
-
-
-export const addTicket = (req,res)=>{
-    const {requestedby,receiver,contents,notes,dept} = req.body;
-    pool.query(queries.addTicket,[requestedby,receiver,contents,notes,dept],(error, results)=>{
+//specific ticket
+export const getTicketByID = (req,res)=>{
+    const id = parseInt(req.body.id);
+    // res.status(200).json(id);
+    pool.query(queries.getTicketByID,[id],(error, results)=>{
         if (error) throw error;
-        // res.status(201).send("Ticket created successfully");
-        console.log("Ticket created");
-        res.status(201).redirect("/Tickets");
-        // res.redirect('/Tickets');
-    });
-    
-    // res.send(`Received form data: Param1 - ${archetype}, Param2 - ${category}`);
+        // res.status(200).json(results.rows);
+        res.status(200).render('../views/vtsTicketPage02', { data: results.rows[0] });
+    })
 };
-
+//DELETE
 export const deleteTicket = (req,res)=>{
     const id = parseInt(req.body.id);
     // res.send(`Ticket ${id}`);
@@ -46,14 +53,15 @@ export const deleteTicket = (req,res)=>{
 };
 
 
-const ticket_meths = {
+const ticket_methods = {
     getTickets,
+    getTicketByID,
     addTicket,
     newTicket,
     deleteTicket
 };
 
-export default ticket_meths;
+export default ticket_methods;
 
 
 // export const getTickets = (req,res)=>{
