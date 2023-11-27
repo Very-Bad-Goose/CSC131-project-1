@@ -32,7 +32,7 @@
         <header class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center">
-                    <h1 class="display-4 fw-bolder">Tickets</h1>
+                    <!-- <h1 class="display-4 fw-bolder">Tickets</h1> -->
                     <!-- <p class="lead fw-normal text-white-50 mb-0"></p> -->
                 </div>
             </div>
@@ -41,19 +41,37 @@
         <main>
             <section class="py-5">
                 <div class="container mt-5">
+                    <h1>Ticket Details</h1>
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Ticket ID: <%= data.id %></h5>
+                            <p class="card-text">Timestamp: <%= data.created_at %></p>
+                            <p class="card-text">Requested By: <%= data.requestedby %></p>
+                            <p class="card-text">Receiver: <%= data.receiver %></p>
+                            <p class="card-text">Contents: <%= data.contents %></p>
+                            <p class="card-text">Approval Status: <%= data.app_status %></p>
+                            <p class="card-text">Notes: <%= data.notes %></p>
+                            <p class="card-text">Department: <%= data.dept %></p>
+                            <!-- Add more ticket details as needed -->
+                            <a href="/tickets" class="btn btn-primary">Back to All Tickets</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-5">
+                <div class="container mt-5">
                     <div class="row">
-                        <% data.forEach(function(ticket) { %>
+                       
                             <div class="col-md-12">
                                 <div class="card mb-3">
                                     <div class="card-body">
-                                        <h5 class="card-title"><%= ticket.created_at %></h5>
-                                        <p class="card-text"><%= ticket.requestedby %></p>
+                                        <h5 class="card-title"><%= data.created_at %></h5>
+                                        <p class="card-text"><%= data.requestedby %></p>
                                         <!-- Add more ticket details as needed -->
-                                        <a href="/tickets/1" class="btn btn-primary">get ticket</a>
                                     </div>
                                 </div>
                             </div>
-                        <% }); %>
+            
                     </div>
                     <% if (data.length === 0) { %>
                         <p>No tickets available</p>
@@ -61,7 +79,6 @@
                 </div>
                 
             </section>
-            
         </main>
         <!-- Footer-->
         <footer class="py-5">
