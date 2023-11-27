@@ -180,7 +180,7 @@ h1 {
       display: flex;
       align-items: center;
       justify-content: flex-start; /* Align items in the section to the start */
-      margin-top: 15px;
+
   }
   
   .quantity-input {
