@@ -206,6 +206,7 @@ h1 {
       transition: background-color 0.3s ease;
       margin-right: 5px;
       margin-left: 5px; /* Add left margin for spacing */
+      align-self: flex-end;
   }
   
   .add-to-cart-btn:hover {
