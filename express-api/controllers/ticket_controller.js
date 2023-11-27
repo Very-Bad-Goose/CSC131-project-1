@@ -1,49 +1,107 @@
-export const getTickets = (req,res)=>{
-    console.log('getting all tickets');
-    res.send(tickets);
-}
+import pool from '../config/postgres_conn.js';
+import queries from '../models/ticket_queries.js';
 
-export const createTicket = (req,res)=>{
-    console.log('creating ticket');
-    const ticket = req.body;
-    tickets.push({...ticket, id:uuidv4()});
-    res.send(`ticket ${ticket.id} created`);
+export const getTickets = (req,res)=>{
+    pool.query(queries.getTickets,(error, results)=>{
+        if (error) throw error;
+        // res.status(200).json(results.rows);
+        res.status(200).render('../views/vtsTicketPage01', { data: results.rows });
+    })
+    
 };
 
-export const getTicket = (req,res)=>{
-    const { id } = req.params;
-    const foundTicket = tickets.find((ticket)=>ticket.id==id);
-    console.log(`finding ${req.params}`);
-    res.send(foundTicket);
-}
+export const newTicket = (req,res)=>{
+    res.status(200).render('../views/vtsAddTicket');
+};
 
-export const updateTicket = (req,res)=>{
-    const { id } = req.params;
-    const { timestamp, sender, receiver, content, status } = req.body;
-    const upTicket = tickets.find((ticket)=>ticket.id==id);
-    if(timestamp){upTicket.timestamp = timestamp;}
-    if(receiver){
-        upTicket.receiver = receiver;
-    }
-    if(content){
-        upTicket.content = content;
-    }
-    if(sender){
-        upTicket.sender = sender;
-    }
-    if(status){
-        upTicket.status = status;
-    }
-    console.log(`${req.params} update`);
-    res.send(`ticket ${id} updated with ${req.params}`);
-}
+
+export const addTicket = (req,res)=>{
+    const {requestedby,receiver,contents,notes,dept} = req.body;
+    pool.query(queries.addTicket,[requestedby,receiver,contents,notes,dept],(error, results)=>{
+        if (error) throw error;
+        // res.status(201).send("Ticket created successfully");
+        console.log("Ticket created");
+        res.status(201).redirect("/Tickets");
+        // res.redirect('/Tickets');
+    });
+    
+    // res.send(`Received form data: Param1 - ${archetype}, Param2 - ${category}`);
+};
 
 export const deleteTicket = (req,res)=>{
-    const { id } = req.params;
-    tickets = tickets.filter((ticket)=>ticket.id != id);
-    console.log(req.params);
-    res.send(`ticket ${id} deleted`);
-}
+    const id = parseInt(req.body.id);
+    // res.send(`Ticket ${id}`);
+    // res.send(req.body.id);
+    pool.query(queries.getTicket,[id],(error, results)=>{
+        if (!results.rows.length){
+            res.send(`student ${id} doesn't exist`);
+        }else{
+            pool.query(queries.deleteTicket,[id],(error, results)=>{
+                if (error) throw error;
+                res.status(200).redirect("/Tickets");
+            })
+        }
+
+    })
+};
+
+
+const ticket_meths = {
+    getTickets,
+    addTicket,
+    newTicket,
+    deleteTicket
+};
+
+export default ticket_meths;
+
+
+// export const getTickets = (req,res)=>{
+//     console.log('getting all tickets');
+//     res.send(tickets);
+// }
+
+// export const createTicket = (req,res)=>{
+//     console.log('creating ticket');
+//     const ticket = req.body;
+//     tickets.push({...ticket, id:uuidv4()});
+//     res.send(`ticket ${ticket.id} created`);
+// };
+
+// export const getTicket = (req,res)=>{
+//     const { id } = req.params;
+//     const foundTicket = tickets.find((ticket)=>ticket.id==id);
+//     console.log(`finding ${req.params}`);
+//     res.send(foundTicket);
+// }
+
+// export const updateTicket = (req,res)=>{
+//     const { id } = req.params;
+//     const { timestamp, sender, receiver, content, status } = req.body;
+//     const upTicket = tickets.find((ticket)=>ticket.id==id);
+//     if(timestamp){upTicket.timestamp = timestamp;}
+//     if(receiver){
+//         upTicket.receiver = receiver;
+//     }
+//     if(content){
+//         upTicket.content = content;
+//     }
+//     if(sender){
+//         upTicket.sender = sender;
+//     }
+//     if(status){
+//         upTicket.status = status;
+//     }
+//     console.log(`${req.params} update`);
+//     res.send(`ticket ${id} updated with ${req.params}`);
+// }
+
+// export const deleteTicket = (req,res)=>{
+//     const { id } = req.params;
+//     tickets = tickets.filter((ticket)=>ticket.id != id);
+//     console.log(req.params);
+//     res.send(`ticket ${id} deleted`);
+// }
 
 // import { v4 as uuidv4 } from 'uuid';
 // let tickets = [

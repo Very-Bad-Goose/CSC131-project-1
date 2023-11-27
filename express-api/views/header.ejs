@@ -12,6 +12,35 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="<%= cssPath %>styles.css" rel="stylesheet" />
     <link href="<%= cssPath %>additional.css" rel="stylesheet" />
+    <style>
+        /* Adjustments for vertical stacking */
+        .full-width {
+            width: 100%;
+        }
+        .custom-card {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            margin-bottom: 20px;
+            border: var(--bs-card-border-width) solid var(--bs-card-border-color);
+        }
+        .custom-card .card-img-top {
+            flex: 0 0 40%; /* Adjust image width */
+            max-width: 40%; /* Adjust image width */
+            height: auto;
+        }
+        .custom-card .card-body {
+            flex: 0 0 60%; /* Adjust text content width */
+            max-width: 60%; /* Adjust text content width */
+        }
+        .custom-card .card-footer {
+            display: flex;
+            flex-direction: column;
+        }
+        .custom-card .card-footer .btn {
+            margin-top: auto;
+        }
+    </style>
 </head>
 <body>
     <header>
