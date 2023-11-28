@@ -16,6 +16,38 @@ export const getItems = (req,res)=>{
     })
     
 };
+export const getComputers = (req,res)=>{
+    pool.query(queries.getComputers,(error, results)=>{
+        if (error) throw error;
+        // res.status(200).json(results.rows);
+        res.status(200).render('../views/itemIndexComputer', { data: results.rows });
+    })
+    
+};
+export const getDocks = (req,res)=>{
+    pool.query(queries.getDocks,(error, results)=>{
+        if (error) throw error;
+        // res.status(200).json(results.rows);
+        res.status(200).render('../views/itemIndexDock', { data: results.rows });
+    })
+    
+};
+export const getMonitors = (req,res)=>{
+    pool.query(queries.getMonitors,(error, results)=>{
+        if (error) throw error;
+        // res.status(200).json(results.rows);
+        res.status(200).render('../views/itemIndexMonitor', { data: results.rows });
+    })
+    
+};
+export const getSoftware = (req,res)=>{
+    pool.query(queries.getSoftware,(error, results)=>{
+        if (error) throw error;
+        // res.status(200).json(results.rows);
+        res.status(200).render('../views/itemIndexSoftware', { data: results.rows });
+    })
+    
+};
 
 export const newItem = (req,res)=>{
     res.status(200).render('../views/vtsAddItem');

@@ -272,3 +272,124 @@
                 </div>
             </div>
         </div>
+
+
+        <!-- old item cards -->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <!-- <pre><%= JSON.stringify(data, null, 2) %></pre> -->
+            <% data.forEach(item => { %>
+                <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder"><%= item.item_name %></h5>
+                                <!-- Product price-->
+                                <%= item.price %>
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add</a></div>
+                            <div class="text-center">
+                                <form action="/items/del/<%= item.id %>" method="POST">
+                                    <!-- Use the method-override library to override POST method as DELETE -->
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="id" value="<%= item.id %>">
+                                    <button type="submit" class="btn btn-danger btn-sm">
+                                        Delete
+                                    </button>
+                                </form>
+                                <!-- <a class="btn btn-outline-dark mt-auto" href="#">delete item</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+            </div>
+        </div>
+
+
+
+        <!-- old item card 2 -->
+        <div class="row">
+            <% data.forEach(function(item) { %>
+                <% if (!item.deleted) { %>
+                <div class="col-md-12">
+                    <div class="card mb-3">
+                        <div class="card-body d-flex align-items-center">
+                            <img class="card-img-top mr-3" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="Product Image" style="max-width: 150px; height: 150px;"/>
+                            <div>
+                                <h6 class="card-text mb-1">Item ID: <%= item.id %></h6>
+                                <p class="card-title mb-1"><%= item.name %></p>
+                                <p class="card-text mb-1"><%= item.price %></p>
+                            </div>
+                            <!-- <div>
+                                <a href="/items/show<%= item.id %>" class="btn btn-primary">Show Ticket</a>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            <% }); %>
+        </div>
+
+
+
+        <div class="full-width">
+            <div class="card custom-card">
+                <img class="card-img-top py-2 px-2" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="Product Image" style="max-height: 400px; max-width: 300px;" />
+                <div class="card-body p-4">
+                    <h5 class="fw-bolder"><%= item.item_name %></h5>
+                    <p><%= item.price %></p>
+                    <h6 class="card-text mb-1">Item ID: <%= item.id %></h6>
+                    <p class="card-title mb-1"><%= item.name %></p>
+                    <p class="card-text mb-1"><%= item.price %></p>
+                </div>
+                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent d-flex justify-content-end align-items-center">
+                    <div class="text-center me-3">
+                        <a class="btn btn-outline-dark" href="#">Add</a>
+                    </div>
+                    <div class="text-center">
+                        <form action="/items/del/<%= item.id %>" method="POST">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="id" value="<%= item.id %>">
+                            <button type="submit" class="btn btn-danger btn-sm">
+                                Delete
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <% data.forEach(function(item) { %>
+            <div class="full-width">
+                <div class="card custom-card">
+                    <img class="card-img-top py-2 px-2" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="Product Image" style="max-height: 400px; max-width:300px;"/>
+                    <div class="card-body p-4">
+                        <h5 class="fw-bolder"><%= item.item_name %></h5>
+                        <p><%= item.price %></p>
+                        <h6 class="card-text mb-1">Item ID: <%= item.id %></h6>
+                        <p class="card-title mb-1"><%= item.name %></p>
+                        <p class="card-text mb-1"><%= item.price %></p>
+                    </div>
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><a class="btn btn-outline-dark" href="#">Add</a></div>
+                        <div class="text-center">
+                            <form action="/items/del/<%= item.id %>" method="POST">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="id" value="<%= item.id %>">
+                                <button type="submit" class="btn btn-danger btn-sm">
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }); %>

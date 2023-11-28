@@ -1,10 +1,14 @@
 import express from 'express';
-import { addItem,getItems,newItem,deleteItem } from '../controllers/item_controller.js';
+import { addItem,getItems,getComputers,getDocks,getMonitors,getSoftware,newItem,deleteItem } from '../controllers/item_controller.js';
 
 const router = express.Router();
 
 router.get('/new', newItem);
 router.get('/', getItems);
+router.get('/computers', getComputers);
+router.get('/docks', getDocks);
+router.get('/monitors', getMonitors);
+router.get('/software', getSoftware);
 router.post('/', addItem);
 // router.get('/:id', getItem);
 // router.patch('/:id', updateItem);
