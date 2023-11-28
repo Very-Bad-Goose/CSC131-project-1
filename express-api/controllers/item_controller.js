@@ -3,17 +3,23 @@
 import pool from '../config/postgres_conn.js';
 import queries from '../models/item_queries.js';
 
+
 // export const getItems = (req,res)=>{
 //     console.log('getting all items');
 //     res.send(items);
 // }
 
 export const getItems = (req,res)=>{
+    // postgre method
     pool.query(queries.getItems,(error, results)=>{
         if (error) throw error;
         // res.status(200).json(results.rows);
         res.status(200).render('../views/vtsItemPage01', { data: results.rows });
     })
+
+    //tedious method
+
+
     
 };
 
