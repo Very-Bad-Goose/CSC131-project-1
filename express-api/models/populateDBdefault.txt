@@ -1,0 +1,12 @@
+Insert into items (category, manufacturer, item_name, price) Values
+('computers','Dell','Dell Preceision 7680 with RTX Card',2000.00),
+('computers','Dell','Dell Preceision 7680 without RTX Card',1500.00),
+('computers','Dell','Dell Preceision 5560',1000.00),
+('docks','Dell','Dell WD19DC',200.00),
+('docks','Dell','Dell WD19DCS',3000.00),
+('monitors','HP','HP M34D 34-inch Curved',1500.00),
+('monitors','Dell','Dell U242H 24-inch',300.00),
+('software','Adobe','Adobe Acrobat Pro',50.00),
+('software','Microsoft','Microsoft Vision Pro',100.00),
+('software','Microsoft','Microsoft Project Pro',100.00),
+('software','Microsoft','VMWare Pro',200.00);

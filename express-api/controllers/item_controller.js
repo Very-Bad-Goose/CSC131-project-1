@@ -16,6 +16,9 @@ export const getItems = (req,res)=>{
     })
     
 };
+export const getItemCat = (req,res)=>{
+    res.status(200).render('../views/categorySelect');    
+};
 export const getComputers = (req,res)=>{
     pool.query(queries.getComputers,(error, results)=>{
         if (error) throw error;
@@ -144,7 +147,12 @@ const meths = {
     getItems,
     addItem,
     newItem,
-    deleteItem
+    deleteItem,
+    getItemCat,
+    getComputers,
+    getDocks,
+    getMonitors,
+    getSoftware
 };
 
 export default meths;
