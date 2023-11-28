@@ -4,23 +4,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VTS Inventory Page</title>
+  <title>Software</title>
   <link rel="stylesheet" type="text/css" href="vts.css">
 </head>
 
 <body>
   <div class="header-strip">
-    <img src="https://raw.githubusercontent.com/Very-Bad-Goose/CSC131-project-1/main/Logos/VTS_White.png"
-      alt="VTS Powered by Voyager logo">
-    <!--connect back button to previous page-->
+    <img src="/Logos/VTS_White.png" alt="VTS Powered by Voyager logo">
     <a href="inventory.html" class="back-arrow">
-      <img
-        src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/Back%20Arrow.png?raw=true"
-        alt="back arrow">
+      <img src="/Inventory Images/Back Arrow.png" alt="back arrow">
+    </a>
+    <a class="cart-icon" href="cart.html">
+      <img src="/Inventory Images/cart_white.svg" alt="Cart Button">
     </a>
   </div>
 
-  <!-- Shop items -->
+  <h1 class="inventory-heading">Software</h1>
+  <div class="inventory-container">
+
+    <div class="inventory">
+      <img
+        src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/MS%20Project.png?raw=true"
+        alt="Microsoft Project">
+      <h4>Microsoft Project</h4>
+      <div class="add-to-cart-section">
+        <div class="button-container">
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <div class="quantity-container">
+          <input type="number" class="quantity-input" placeholder="quantity" min="0">
+        </div>
+      </div>
+    </div>
+
+    <div class="inventory">
+      <img src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/MS%20Visio.png?raw=true"
+        alt="Microsoft Visio">
+      <h4>Microsoft Visio</h4>
+      <div class="add-to-cart-section">
+        <div class="button-container">
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <div class="quantity-container">
+          <input type="number" class="quantity-input" placeholder="quantity" min="0">
+        </div>
+      </div>
+    </div>
+
+    <div class="inventory">
+      <img
+        src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/Adobe%20Acrobat.png?raw=true"
+        alt="Adobe Pro">
+      <h4>Adobe Pro</h4>
+      <div class="add-to-cart-section">
+        <div class="button-container">
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <div class="quantity-container">
+          <input type="number" class="quantity-input" placeholder="quantity" min="0">
+        </div>
+      </div>
+    </div>
+    <div class="inventory">
+      <img src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/VMWarePro.png?raw=true"
+        alt="VMWare Pro">
+      <h4>VMWare Pro</h4>
+      <div class="add-to-cart-section">
+        <div class="button-container">
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <div class="quantity-container">
+          <input type="number" class="quantity-input" placeholder="quantity" min="0">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Shop items 
   <div class="shop-item">
     <img class="item-image"
       src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/MS%20Project.png?raw=true"
@@ -73,14 +132,15 @@
     <button class="item-button">Add to Cart</button>
   </div>
 
+  </div>
   <script>
     function changeQuantity(button, change) {
       const inputElement = button.parentNode.querySelector('.quantity-input');
       let currentQuantity = parseInt(inputElement.value);
       inputElement.value = Math.max(1, currentQuantity + change);
-    }
+    } 
   </script>
-
+-->
 </body>
 
 </html>
