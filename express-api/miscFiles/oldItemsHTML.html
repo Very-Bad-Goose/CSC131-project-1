@@ -242,3 +242,33 @@
             <% }); %>
             </div>
         </div>
+
+
+
+
+        <!-- old ticket index card -->
+        <div class="col-md-12">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title"><%= ticket.created_at %></h5>
+                    <p class="card-text"><%= ticket.requestedby %></p>
+                    <!-- Add more ticket details as needed -->
+                    
+                    <a href= "/tickets/show<%= ticket.id %>" class="btn btn-primary">show ticket</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="card mb-3">
+                <div class="card-body d-flex justify-content-between">
+                    <div>
+                        <h6 class="card-text">Ticket No: <%= ticket.id %></h6>
+                        <p class="card-title"><%= ticket.created_at %></p>
+                        <p class="card-text">Requested By: <%= ticket.requestedby %></p>
+                    </div>
+                    <div>
+                        <a href="/tickets/show<%= ticket.id %>" class="btn btn-primary">Show Ticket</a>
+                    </div>
+                </div>
+            </div>
+        </div>
