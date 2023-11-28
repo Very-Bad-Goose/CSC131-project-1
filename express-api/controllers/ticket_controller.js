@@ -26,7 +26,7 @@ export const getTickets = (req,res)=>{
 };
 //specific ticket
 export const getTicketByID = (req,res)=>{
-    const id = parseInt(req.body.id);
+    const id = parseInt(req.params.id);
     // res.status(200).json(id);
     pool.query(queries.getTicketByID,[id],(error, results)=>{
         if (error) throw error;
@@ -34,21 +34,39 @@ export const getTicketByID = (req,res)=>{
         res.status(200).render('../views/vtsTicketPage02', { data: results.rows[0] });
     })
 };
+//UPDATE
+//update page
+export const modifyTicket = (req,res)=>{
+    const id = parseInt(req.query.id);
+    pool.query(queries.getTicketByID,[id],(error, results)=>{
+        if (error) throw error;
+        // res.status(200).json(results.rows);
+        res.status(200).render('../views/vtsUpdateTicket', { data: results.rows[0] });
+    })
+};
+//update action
+export const updateTicket = (req,res)=>{
+    const {requestedby,receiver,contents,notes,dept,id} = req.body;
+    pool.query(queries.updateTicket,[requestedby,receiver,contents,notes,dept,id],(error, results)=>{
+        if (error) throw error;
+        console.log("Ticket updated", [requestedby,receiver,contents,notes,dept,id]);
+        res.status(201).redirect(`/Tickets/show${id}`);
+    });
+};
 //DELETE
 export const deleteTicket = (req,res)=>{
     const id = parseInt(req.body.id);
     // res.send(`Ticket ${id}`);
     // res.send(req.body.id);
-    pool.query(queries.getTicket,[id],(error, results)=>{
+    pool.query(queries.getTicketByID,[id],(error, results)=>{
         if (!results.rows.length){
-            res.send(`student ${id} doesn't exist`);
+            res.send(`ticket ${id} doesn't exist`);
         }else{
             pool.query(queries.deleteTicket,[id],(error, results)=>{
                 if (error) throw error;
                 res.status(200).redirect("/Tickets");
             })
         }
-
     })
 };
 

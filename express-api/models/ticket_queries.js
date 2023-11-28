@@ -5,9 +5,10 @@ const addTicket = "insert into Tickets (requestedby,receiver,contents,notes,dept
 const getTickets = "select * from Tickets";
 const getTicketByID = "select * from Tickets where id = $1";
 //update
-const updateTicket = "update Tickets set requestedby = $1, receiver = $2, contents = $3, notes = $5, dept = $6 WHERE id = $7";
+//requestedby,receiver,contents,notes,dept
+const updateTicket = "update Tickets set requestedby = $1, receiver = $2, contents = $3, notes = $4, dept = $5 WHERE id = $6";
 //delete
-const deleteTicket = "delete from Tickets where id = $1";
+const deleteTicket = "update Tickets set deleted = TRUE where id = $1";
 
 const ticket_queries = {
     addTicket,
