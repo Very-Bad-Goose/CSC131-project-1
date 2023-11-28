@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VTS Inventory Page</title>
+    <link rel="stylesheet" type="text/css" href="vts.css">
+    <style>
+        .ticketList {
+            padding: 0;
+            margin: 0;
+            margin-top: 60px;
+            width: 100%;
+            text-align: left;
+            justify-content: left;
+        }
+
+        .ticketTable {
+            border-collapse: separate;
+            border-spacing: 0;
+            background-color: lightgrey;
+            width: 100%;
+
+        }
+
+        .ticketTable tr td {
+            height: auto;
+            color: black;
+            padding: 8px;
+            border-bottom: 5px solid white;
+        }
+
+        /* .ticketTableHeaderRow {
+            height: 50px;
+            color: black;
+            width: auto;
+        }*/
+    </style>
+</head>
+
+<body>
+
+    <div class="header-strip">
+        <img src="https://raw.githubusercontent.com/Very-Bad-Goose/CSC131-project-1/main/Logos/VTS_White.png"
+            alt="VTS Powered by Voyager logo">
+        <!--connect back button to previous page-->
+        <a href="" class="back-arrow">
+            <img src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/Back%20Arrow.png?raw=true"
+                alt="back arrow">
+        </a>
+    </div>
+
+    <div class="ticketList"></div>
+
+    <script>
+        const ticketsDiv = document.querySelector("div.ticketList")
+
+        let tableHeaders = ["ID", "Title", "Category"]
+
+        const createTable = () => {
+
+            while (ticketsDiv.firstChild) ticketsDiv.removeChild(ticketsDiv.firstChild)
+
+            let ticketTable = document.createElement('table')
+            ticketTable.className = 'ticketTable'
+
+            /*let ticketTableHead = document.createElement('thead')
+            ticketTableHead.className = 'ticketTableHead'
+
+            let ticketTableHeaderRow = document.createElement('tr')
+            ticketTableHeaderRow.className = 'ticketTableHeaderRow'
+
+            tableHeaders.forEach(header => {
+                let ticketHeader = document.createElement('th')
+                ticketHeader.innerText = header
+                ticketTableHeaderRow.append(ticketHeader)
+            })
+
+            ticketTableHead.append(ticketTableHeaderRow)
+            ticketTable.append(ticketTableHead)
+            */
+            let ticketTableBody = document.createElement('tbody')
+            ticketTableBody.className = "ticketTable-Body"
+            ticketTable.append(ticketTableBody)
+
+            ticketsDiv.append(ticketTable)
+
+        }
+
+        const appendTickets = (ticket) => {
+            const ticketTable = document.querySelector('.ticketTable')
+
+            let ticketTableRow = document.createElement('tr')
+            ticketTableRow.className = 'ticketTableRow'
+
+            let ticketID = document.createElement('td')
+            ticketID.innerText = "ID: " + ticket.id
+
+            let ticketTitle = document.createElement('td')
+            ticketTitle.innerText = "Title: " + ticket.title
+
+            let ticketCategory = document.createElement('td')
+            ticketCategory.innerText = "Category: " + ticket.category
+
+            ticketTableRow.append(ticketID, ticketTitle, ticketCategory)
+
+            ticketTable.append(ticketTableRow)
+            console.log(ticketTableRow)
+        }
+
+        const getTickets = () => {
+            fetch('https://dummyjson.com/products')
+                .then(res => res.json())
+                .then(data => {
+                    const products = data.products;
+                    createTable();
+                    for (const product of products) {
+                        appendTickets(product);
+                    }
+                })
+        }
+
+        getTickets();
+    </script>
+</body>
+
+
+<!--
+                    <td><label>#.</label>1</td>
+                    <td><label>Name: </label>Name</td>
+                    <td><label>id: </label>id# </td>
+                    <td><label>Department: </label>Department</td>
+                    <td><label>Date: </label>Date</td>
+                    <td><label>Time: </label>Time</td>
+-->
+
+</html>

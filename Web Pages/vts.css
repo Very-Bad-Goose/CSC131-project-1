@@ -41,3 +41,92 @@ h1 {
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+/* Global styles */
+    body {
+      font-family: sans-serif;
+      background-color: white;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* Header strip */
+    .header-strip {
+      background-color: darkblue;
+      color: white;
+      padding: 40px;
+      width: 100%;
+      position: relative;
+    }
+
+    .header-strip img {
+      width: auto;
+      height: auto;
+      max-width: 160px;
+      max-height: 80px;
+      margin: -40px 0 0 0;
+      position: absolute;
+    }
+
+    .back-arrow {
+      position: absolute;
+      top: 120px; /* Adjusted position */
+      left: 10px;
+    }
+
+    .back-arrow img {
+      width: 50px;
+      height: 50px;
+    }
+
+    /* Shop items */
+    .shop-item {
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+      text-align: center;
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .item-image {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+      max-height: 200px;
+    }
+
+    .item-title {
+      margin-top: auto;
+    }
+
+    .item-button {
+      margin-top: auto;
+    }
+
+    .quantity-control {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 60%;
+      margin-top: 10px;
+    }
+
+    .quantity-control button {
+      padding: 5px 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .quantity-input {
+      width: 40px;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    

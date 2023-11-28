@@ -1,0 +1,81 @@
+<%- include('header') %>
+        <!-- Navigation-->
+        <nav id="mainnav" class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a id="titletext" class="navbar-brand" href="#!"><img id="vslogo" src="vs.png">Requisition Order System</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <!-- <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li> -->
+                        <!-- <li class="nav-item"><a class="nav-link" href="#!">Help</a></li> -->
+                        <li class="nav-item dropdown">
+                            <!-- <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a> -->
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <!-- <li><a class="dropdown-item" href="#!">All Products</a></li> -->
+                                <!-- <li><hr class="dropdown-divider" /></li> -->
+                                <!-- <li><a class="dropdown-item" href="#!">Popular Items</a></li> -->
+                                <!-- <li><a class="dropdown-item" href="#!">New Arrivals</a></li> -->
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <button id="cartBtn" class="btn btn-outline-dark" type="submit">
+                            <i class="bi-cart-fill me-1"></i>
+                            Cart
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <main>
+            <section class="py-5">
+                <div class="container px-4 px-lg-5">
+                    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                        <div class="container mt-5">
+                            <h2>Item Details</h2>
+                            <form action="/items/" method="POST">
+                                <div class="form-group">
+                                    <label for="archetype">Archetype</label>
+                                    <input type="text" class="form-control" id="archetype" name="archetype" placeholder="Enter archetype">
+                                </div>
+                                <div class="form-group">
+                                    <label for="category">Category</label>
+                                    <input type="text" class="form-control" id="category" name="category" placeholder="Enter category">
+                                </div>
+                                <div class="form-group">
+                                    <label for="manufacturer">Manufacturer</label>
+                                    <input type="text" class="form-control" id="manufacturer" name="manufacturer" placeholder="Enter manufacturer">
+                                </div>
+                                <div class="form-group">
+                                    <label for="item_name">Item Name</label>
+                                    <input type="text" class="form-control" id="item_name" name="item_name" placeholder="Enter item name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="imagepath">Image Path</label>
+                                    <input type="text" class="form-control" id="imagepath" name="imagepath" placeholder="Enter image path">
+                                </div>
+                                <div class="form-group">
+                                    <label for="price">Price</label>
+                                    <input type="text" class="form-control" id="price" name="price" placeholder="Enter price">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+          
+                    </div>
+                </div>
+            </section>
+            
+        </main>
+        
+        <!-- Footer-->
+        <footer class="py-5">
+            <!-- <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Valley Tech Systems</p></div> -->
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
