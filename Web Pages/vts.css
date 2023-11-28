@@ -147,6 +147,7 @@ h1 {
       flex-wrap: wrap;
       margin: 0 -10px; /* Add negative margin to counteract padding */
       margin-left: 20px; /* Add left margin for the content */
+      margin-right: 20px;
   }
   .inventory-heading{
       margin: 15px 0px 15px 25px;
@@ -296,11 +297,23 @@ h1 {
 }
 
 .login-form button {
-  background-color: darkblue;
+
+  padding: 10px 20px;
+  font-size: 16px;
+  line-height: 1;
+  height: auto;
+  background-color: #007bff;
   color: white;
-  padding: 10px;
-  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 5px;
+  margin-left: 5px; /* Add left margin for spacing */
+}
+
+.login-form button:hover {
+  background-color: #0056b3;
 }
 
 /* Error messages */
@@ -341,4 +354,26 @@ height: 100px;
   position: relative;
   height: 50px;
   width: auto;
+}
+
+
+.cart-container {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  margin: 20px; /* Apply proper spacing */
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.947);
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+.cart-container img {
+  height: auto;
+  width: auto;
+  border-radius: 5px;
+  max-width: 14%;
 }
