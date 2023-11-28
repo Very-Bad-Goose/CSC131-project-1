@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VTS Inventory</title>
-  <link rel="stylesheet" type="text/css" href="vts.css">
 <title>Valley Tech Systems Admin Login</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="vts.css">
 </head>
 <body>
 <div class="admin-login-page">
   <div class="header-strip">
     <img src="https://raw.githubusercontent.com/Very-Bad-Goose/CSC131-project-1/main/Logos/VTS_White.png" alt="VTS Powered by Voyager logo">
-    <h1>Valley Tech Systems |  Admin Login </h1>
+   <!-- <h2>Valley Tech Systems | Admin Login</h2>-->
   </div>
 
   <div class="sign-up-details">
-    <h1>Admin Login</h1>
+    <h2>Admin Login</h2>
     <p> Please enter your login credentials. </p>
   </div>
 
   <form class="login-form" action="#">
     <input type="text" name="username" placeholder="Username">
     <input type="password" name="password" placeholder="Password">
-
     <button type="submit">Login</button>
   </form>
 
@@ -30,12 +28,10 @@
     <a href="#">Forgot password?</a>
   </div>
 
-  <div class="error-message">
-  </div>
+  <div class="error-message"></div>
 </div>
 
-
-  <script>
+<script>
 var loginForm = document.querySelector('.login-form');
 var errorMessage = document.querySelector('.error-message');
 
