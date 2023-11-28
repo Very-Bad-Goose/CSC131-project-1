@@ -1,0 +1,22 @@
+  -- time_stamp TIMESTAMPTZ NOT NULL UNIQUE,
+CREATE TABLE tickets (
+  id SERIAL PRIMARY KEY,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  requestedby VARCHAR(255) DEFAULT 'None specified' NOT NULL,
+  receiver VARCHAR(255) DEFAULT 'None specified',
+  contents TEXT DEFAULT 'None specified' NOT NULL,
+  app_status BOOLEAN DEFAULT FALSE NOT NULL,
+  notes TEXT,
+  dept INT DEFAULT 0 NOT NULL,
+  deleted BOOLEAN DEFAULT FALSE NOT NULL
+);
+
+CREATE TABLE items (
+  id SERIAL PRIMARY KEY,
+  archetype VARCHAR(255),
+  category VARCHAR(255),
+  manufacturer VARCHAR(255),
+  item_name VARCHAR(255),
+  imagepath VARCHAR(255),
+  price DOUBLE PRECISION
+);

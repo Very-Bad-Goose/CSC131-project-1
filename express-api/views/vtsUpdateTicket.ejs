@@ -1,0 +1,111 @@
+<%- include('header') %>
+        <!-- Header-->
+        <header class="pt-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center">
+                    <h1 class="display-4 fw-bolder">Ticket Details</h1>
+                </div>
+            </div>
+        </header>
+        <!-- Section-->
+        <main>
+            <section>
+                <div class="container mt-5">
+                    <div class="d-flex justify-content-between align-items-center mt-5">
+                        <a href="/tickets/show<%= data.id %>" class="btn btn-primary">Back</a>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-header d-flex justify-content-between">
+                            <h5 class="card-title">Ticket ID: <%= data.id %></h5>
+                        </div>
+                        <div class="card-body">
+                            <!-- <h5 class="card-title">Ticket ID: <%= data.id %></h5> -->
+                            <p class="card-text">Timestamp: <%= data.created_at %></p>
+                            <p class="card-text">Requested By: <%= data.requestedby %></p>
+                            <p class="card-text">Receiver: <%= data.receiver %></p>
+                            <p class="card-text">Contents: <%= data.contents %></p>
+                            <p class="card-text">Approval Status: <%= data.app_status %></p>
+                            <p class="card-text">Notes: <%= data.notes %></p>
+                            <p class="card-text">Department: <%= data.dept %></p>
+                        </div>
+                    </div>
+                    <!-- <a href="/tickets" class="btn btn-primary">Back to All Tickets</a> -->
+                </div>
+            </section>
+            <!-- Section-->
+        <section>
+            <div class="container mt-5">
+                <div class="card mt-4">
+                    <div class="card-body">
+                    <form action="/tickets/update" method="POST">
+                        <input type="hidden" name="id" value="<%= data.id %>">
+                        <div class="row mb-4">
+                          <div class="col">
+                            <div class="form-outline">
+                                
+                                    <input type="text" class="form-control" id="requestedby" name="requestedby" value="<%= data.requestedby %>" placeholder="Enter requested by">
+                                    <label for="requestedby">Requested By</label>
+                                
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="form-outline">
+                                
+                                    <input type="text" class="form-control" id="receiver" name="receiver" value="<%= data.receiver %>" placeholder="Enter receiver">
+                                    <label for="receiver">Receiver</label>
+                               
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Text input -->
+                        <div class="form-outline mb-4">
+                            <input type="text" class="form-control" id="contents" name="contents" value="<%= data.contents %>" placeholder="Enter contents">
+                            <label for="contents">contents</label>
+                        </div>
+
+                        <!-- Number input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="dept">Department</label>
+                            <select name="dept" id="dept">
+                                <option value="1" <% if (data.dept === '1') { %> selected <% } %>>Department 1</option>
+                                <option value="2" <% if (data.dept === '2') { %> selected <% } %>>Department 2</option>
+                                <option value="3" <% if (data.dept === '3') { %> selected <% } %>>Department 3</option>
+                                <option value="4" <% if (data.dept === '4') { %> selected <% } %>>Department 4</option>
+                            </select>
+                        </div>
+                      
+                        <!-- Message input -->
+                        <div class="form-outline mb-4">
+                            <textarea class="form-control" id="notes" name="notes" rows="4"><%= data.notes %></textarea>
+                            <label for="notes">Notes</label>
+                        </div>
+                    
+                      
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn-block mb-4">Update Ticket</button>
+                    </form>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </section>
+        </main>
+        
+        <!-- Footer-->
+        <footer class="py-5">
+            <!-- <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Valley Tech Systems</p></div> -->
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script>
+            function confirmDelete() {
+                if (confirm('Are you sure you want to delete this item?')) {
+                    document.getElementById('deleteForm').submit();
+                }
+            }
+        </script>
+    </body>
+</html>
