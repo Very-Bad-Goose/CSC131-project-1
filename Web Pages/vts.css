@@ -331,3 +331,14 @@ width: 90px;
 height: 100px;
 }
 }
+
+.cart-icon {
+  position: absolute;
+  left: 95%;
+  bottom: 15%;
+}
+.cart-icon img {
+  position: relative;
+  height: 50px;
+  width: auto;
+}
