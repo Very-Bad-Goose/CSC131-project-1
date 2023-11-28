@@ -2,130 +2,25 @@
 <html>
 <head>
 <title>Valley Tech Systems Admin Login</title>
-<style>
-/* Global styles */
-body {
-  font-family: sans-serif;
-  background-color: white;
-   
-}
-
-/* Admin login page */
-.admin-login-page {
-  margin: 0 auto;
-  width: 100%;
-  padding: 20px;
- 
-   
-}
-
-/* Header strip */
-.header-strip {
-  background-color: darkblue;
-  color: white;
-  padding: 50px 0;
-}
-
-
-.header-strip img {
-  width: 100%;
-  height: 100px;
-  max-width: 10%;
-  max-height: 100%;
-  float: left;
-}
-
-.header-strip h1 {
-  font-size: 24px;
-  font-weight: bold;
-  float: left;
-  }
-
-/* Sign up details */
-
-.sign-up-details {
-  text-align: center;
-
-}
-
-.sign-up-details h1 {
-  font-size: 24px;
-  font-weight: bold;
-  
-}
-
-.sign-up-details p {
-  font-size: 16px;
-   
-}
-
-/* Login form */
-.login-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 100px;
-}
-
-.login-form input {
-  width: 300px;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-
-.login-form button {
-  background-color: darkblue;
-  color: white;
-  padding: 10px;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-/* Error messages */
-.error-message {
-  color: red;
-  font-size: 12px;
-}
-
-/* Forget password button */
-.forget-password-button {
-  text-align: right;
-  margin-top: 10px;
-}
-
-/* Responsive design */
-@media (max-width: 500px) {
-  .admin-login-page {
-    width: 100%;
-  }
-
-  .login-form input {
-    width: 100%;
-  }
-
-  .header-strip img {
-    width: 90px;
-    height: 100px;
-  }
-}
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="vts.css">
 </head>
 <body>
 <div class="admin-login-page">
   <div class="header-strip">
     <img src="https://raw.githubusercontent.com/Very-Bad-Goose/CSC131-project-1/main/Logos/VTS_White.png" alt="VTS Powered by Voyager logo">
-    <h1>Valley Tech Systems |  Admin Login </h1>
+   <!-- <h2>Valley Tech Systems | Admin Login</h2>-->
   </div>
 
   <div class="sign-up-details">
-    <h1>Admin Login</h1>
+    <h2>Admin Login</h2>
     <p> Please enter your login credentials. </p>
   </div>
 
   <form class="login-form" action="#">
     <input type="text" name="username" placeholder="Username">
     <input type="password" name="password" placeholder="Password">
-
     <button type="submit">Login</button>
   </form>
 
@@ -133,12 +28,10 @@ body {
     <a href="#">Forgot password?</a>
   </div>
 
-  <div class="error-message">
-  </div>
+  <div class="error-message"></div>
 </div>
 
-
-  <script>
+<script>
 var loginForm = document.querySelector('.login-form');
 var errorMessage = document.querySelector('.error-message');
 
