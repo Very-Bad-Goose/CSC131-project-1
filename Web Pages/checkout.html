@@ -1,27 +1,70 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+    <link rel="stylesheet" type="text/css" href="vts.css" />
+    <style>
+      form.chckt-input {
+        display: grid;
+        grid-template-columns: max-content max-content;
+        grid: gap 10px;
+        text-align: right;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VTS Inventory Page</title>
-  <link rel="stylesheet" type="text/css" href="vts.css">
-</head>
+      form.chckt-input input {
+        margin: 20px;
+      }
+      form.chckt-input label {
+        margin: 10px;
+      }
 
-<body>
-  <div class="header-strip">
-    <img src="/Logos/VTS_White.png" alt="VTS Powered by Voyager logo">
-    <a href="cart.html" class="back-arrow">
-      <img src="/Inventory Images/Back Arrow.png" alt="back arrow">
-    </a>
-    <a class="cart-icon" href="cart.html">
-      <img src="/Inventory Images/cart_white.svg" alt="Cart Button">
-    </a>
-  </div>
+      form.chckt-input label:after {
+        content: ":";
+      }
 
-  <script>
+      div.notes input {
+        height: 30;
+      }
 
-  </script>
-</body>
+      form.chckt-input input[type="submit"] {
+        background-color: darkblue;
+        color: white;
+        padding: 10px;
+        margin-top: 10px;
+        cursor: pointer;
+        text-align: center;
+      }
+    </style>
+  </head>
 
+  <body>
+    <div class="header-strip">
+      <img src="/Logos/VTS_White.png" alt="VTS Powered by Voyager logo" />
+      <a href="cart.html" class="back-arrow">
+        <img src="/Inventory Images/Back Arrow.png" alt="back arrow" />
+      </a>
+      <a class="cart-icon" href="cart.html">
+        <img src="/Inventory Images/cart_white.svg" alt="Cart Button" />
+      </a>
+    </div>
+    <div class="chckt-input">
+      <h1>Checkout</h1>
+    </div>
+    <form class="chckt-input" action="#">
+      <label for="name-input">Name</label>
+      <input type="text" id="name-input" name="name-input" />
+      <label for="dept-input">Department</label>
+      <input type="text" id="dept-input" name="dept-input" />
+      <label for="date-input">Date</label>
+      <input type="text" id="date-input" name="date-input" />
+      <label for="notes-input">Notes</label>
+      <input class="notes" type="text" id="notes-input" name="notes-input" />
+
+      <input type="submit" value="submit" />
+    </form>
+
+    <script></script>
+  </body>
 </html>
