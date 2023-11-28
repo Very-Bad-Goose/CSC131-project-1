@@ -1,63 +1,94 @@
 <%- include('header') %>
-        <!-- Navigation-->
-        <nav id="mainnav" class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container px-4 px-lg-5">
-                <a id="titletext" class="navbar-brand" href="#!"><img id="vslogo" src="vs.png">Requisition Order System</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <!-- <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li> -->
-                        <!-- <li class="nav-item"><a class="nav-link" href="#!">Help</a></li> -->
-                        <li class="nav-item dropdown">
-                            <!-- <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a> -->
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <!-- <li><a class="dropdown-item" href="#!">All Products</a></li> -->
-                                <!-- <li><hr class="dropdown-divider" /></li> -->
-                                <!-- <li><a class="dropdown-item" href="#!">Popular Items</a></li> -->
-                                <!-- <li><a class="dropdown-item" href="#!">New Arrivals</a></li> -->
-                            </ul>
-                        </li>
-                    </ul>
-                    <form class="d-flex">
-                        <button id="cartBtn" class="btn btn-outline-dark" type="submit">
-                            <i class="bi-cart-fill me-1"></i>
-                            Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
-                    </form>
+    <main>
+             <!-- Header-->
+        <header class="py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center">
+                    <h1 class="display-4 fw-bolder">Finalize Request</h1>
+                    <p class="lead fw-normal mb-0">submit to send request for manager approval</p>
                 </div>
             </div>
-        </nav>
-        <main>
-            <section class="py-5">
+        </header>
+        <!-- Section-->
+        <section class="py-5">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <form action="/tickets/" method="POST">
+                        <div class="row mb-4">
+                          <div class="col">
+                            <div class="form-outline">
+                                
+                                    <input type="text" class="form-control" id="requestedby" name="requestedby" placeholder="Enter requested by">
+                                    <label for="requestedby">Requested By</label>
+                                
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="form-outline">
+                                
+                                    <input type="text" class="form-control" id="receiver" name="receiver" placeholder="Enter receiver">
+                                    <label for="receiver">Receiver</label>
+                               
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Text input -->
+                        <div class="form-outline mb-4">
+                            <input type="text" class="form-control" id="contents" name="contents" placeholder="Enter contents">
+                            <label for="contents">contents</label>
+                        </div>
+
+                        <!-- Number input -->
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="dept">Department</label>
+                            <select name="dept" id="dept">
+                                <option value="1">Department 1</option>
+                                <option value="2">Department 2</option>
+                                <option value="3">Department 3</option>
+                                <option value="4">Department 4</option>
+                            </select>
+                        </div>
+                      
+                        <!-- Message input -->
+                        <div class="form-outline mb-4">
+                            <textarea class="form-control" id="notes" name="notes" rows="4"></textarea>
+                            <label for="notes">Notes</label>
+                        </div>
+                    
+                      
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn-block mb-4">Send Request</button>
+                      </form>
+
+                    
+                </div>
+            </div>
+        </section>
+            <!-- <section class="py-5">
                 <div class="container px-4 px-lg-5">
                     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                         <div class="container mt-5">
                             <h2>Item Details</h2>
                             <form action="/tickets/" method="POST">
                                 <div class="form-group">
-                                    <label for="requestedby">Requested By</label>
                                     <input type="text" class="form-control" id="requestedby" name="requestedby" placeholder="Enter requested by">
+                                    <label for="requestedby">Requested By</label>
                                 </div>
                                 <div class="form-group">
-                                    <label for="receiver">receiver</label>
                                     <input type="text" class="form-control" id="receiver" name="receiver" placeholder="Enter receiver">
+                                    <label for="receiver">receiver</label>
                                 </div>
                                 <div class="form-group">
-                                    <label for="contents">contents</label>
                                     <input type="text" class="form-control" id="contents" name="contents" placeholder="Enter contents">
+                                    <label for="contents">contents</label>
                                 </div>
-                                <!-- <div class="form-group">
-                                    <label for="app_status">App Status</label>
-                                    <input type="text" class="form-control" id="app_status" name="app_status" placeholder="Enter App Status">
-                                </div> -->
                                 <div class="form-group">
-                                    <label for="notes">Notes</label>
                                     <input type="text" class="form-control" id="notes" name="notes" placeholder="Enter Notes">
+                                    <label for="notes">Notes</label>
                                 </div>
                                 <div class="form-group">
-                                    <label for="dept">dept</label>
                                     <input type="text" class="form-control" id="dept" name="dept" placeholder="Enter dept">
+                                    <label for="dept">dept</label>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
@@ -65,9 +96,9 @@
           
                     </div>
                 </div>
-            </section>
+            </section> -->
             
-        </main>
+    </main>
         
         <!-- Footer-->
         <footer class="py-5">

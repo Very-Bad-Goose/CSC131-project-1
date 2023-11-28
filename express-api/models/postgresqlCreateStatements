@@ -7,7 +7,8 @@ CREATE TABLE tickets (
   contents TEXT DEFAULT 'None specified' NOT NULL,
   app_status BOOLEAN DEFAULT FALSE NOT NULL,
   notes TEXT,
-  dept INT DEFAULT 0 NOT NULL
+  dept INT DEFAULT 0 NOT NULL,
+  deleted BOOLEAN DEFAULT FALSE NOT NULL
 );
 
 CREATE TABLE items (
