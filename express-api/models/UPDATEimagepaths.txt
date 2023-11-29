@@ -1,0 +1,42 @@
+UPDATE items
+SET imagepath = 'AdobeAcrobat.png'
+WHERE item_name = 'Adobe Acrobat Pro';
+
+UPDATE items
+SET imagepath = 'DellPrecision5560.png'
+WHERE item_name = 'Dell Preceision 5560';
+
+UPDATE items
+SET imagepath = 'DellPrecision7680.png'
+WHERE item_name = 'Dell Preceision 7680 with RTX Card';
+UPDATE items
+SET imagepath = 'DellPrecision7680.png'
+WHERE item_name = 'Dell Preceision 7680 without RTX Card';
+
+UPDATE items
+SET imagepath = 'DellU242H24.png'
+WHERE item_name = 'Dell U242H 24-inch';
+
+UPDATE items
+SET imagepath = 'DellWD19DCDock.png'
+WHERE item_name = 'Dell WD19DC';
+
+UPDATE items
+SET imagepath = 'DellWD19SDock.png'
+WHERE item_name = 'Dell WD19DCS';
+
+UPDATE items
+SET imagepath = 'HPM34D34Curved.png'
+WHERE item_name = 'HP M34D 34-inch Curved';
+
+UPDATE items
+SET imagepath = 'MSProject.png'
+WHERE item_name = 'Microsoft Project Pro';
+
+UPDATE items
+SET imagepath = 'MSVisio.png'
+WHERE item_name = 'Microsoft Vision Pro';
+
+UPDATE items
+SET imagepath = 'VMWarePro.png'
+WHERE item_name = 'VMWare Pro';
