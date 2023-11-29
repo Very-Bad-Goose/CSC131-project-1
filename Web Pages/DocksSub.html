@@ -25,7 +25,7 @@
                 alt="Dell WD19DC Dock">
             <h4>Dell WD19DC Dock</h4>
             <div class="add-to-cart-section">
-                <button class="add-to-cart-btn">Add to Cart</button>
+                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
                 <input type="number" class="quantity-input" placeholder="quantity" min="0">
             </div>
 
@@ -36,7 +36,7 @@
                 alt="Dell WD19S Dock">
             <h4>Dell WD19S Dock</h4>
             <div class="add-to-cart-section">
-                <button class="add-to-cart-btn">Add to Cart</button>
+                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
                 <input type="number" class="quantity-input" placeholder="quantity" min="0">
             </div>
         </div>
@@ -44,5 +44,30 @@
     </div>
 
 </body>
+
+<script>
+    function addToCart(button) {
+        //retrieve data from correct item div
+        let itemDiv = button.closest('.inventory');
+        let quantity = parseInt(itemDiv.querySelector('.quantity-input').value);
+        let name = itemDiv.querySelector('h4').textContent;
+
+        //get exising cart
+        let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+
+        let existingItem = cart.find(item => item.name === name);
+        if (existingItem) {
+            existingItem.quantity += quantity;
+        } else if (quantity >= 1) {
+            let cartObj = {
+                name: name,
+                quantity: quantity
+            };
+            cart.push(cartObj)
+        }
+
+        sessionStorage.setItem('cart', JSON.stringify(cart));
+    }
+</script>
 
 </html>
