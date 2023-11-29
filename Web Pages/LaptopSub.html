@@ -6,6 +6,154 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="vts.css">
     <title>Laptops</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: sans-serif;
+            background-color: white;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            overflow-x: hidden;
+            padding: 0;
+            flex-direction: column;
+        }
+
+        /* Header strip */
+        .header-strip {
+            background-color: darkblue;
+            color: white;
+            padding: 40px;
+            width: 100%;
+            position: relative;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-strip img {
+            width: auto;
+            height: auto;
+            max-width: 160px;
+            max-height: 80px;
+            margin: 0;
+        }
+
+        .back-arrow {
+            position: absolute;
+            top: 120px;
+            left: 10px;
+        }
+
+        .back-arrow img {
+            width: 50px;
+            height: 50px;
+            position: relative;
+        }
+
+        .cart-icon {
+            position: absolute;
+            left: 95%;
+            bottom: 15%;
+            transform: translate(-50%, -50%);
+        }
+
+        .cart-icon img {
+            position: relative;
+            height: 50px;
+            width: auto;
+        }
+
+        /* Shop items */
+        .inventory-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .inventory {
+            flex: 0 0 calc(33.33% - 20px);
+            max-width: 275px;
+            margin: 20px 10px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.947);
+            box-sizing: border-box;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .inventory img {
+            max-width: 100%;
+            height: 200px;
+            border-radius: 5px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .inventory h4 {
+            margin-top: 50px;
+            font-size: 18px;
+        }
+
+        .add-to-cart-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .quantity-input {
+            width: 80px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .add-to-cart-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            line-height: 1;
+            height: auto;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-right: 5px;
+            margin-left: 5px;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .inventory:hover {
+            transform: translateY(-5px);
+        }
+
+        .inventory-heading {
+            font-weight: 800;
+            margin-left: auto; /* Centered the title */
+            margin-right: auto;
+            color: darkblue;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,10 +173,9 @@
                 alt="Dell Precision 5560" height="auto">
             <h4>Dell Precision 5560</h4>
             <div class="add-to-cart-section">
-                <button class="add-to-cart-btn">Add to Cart</button>
                 <input type="number" class="quantity-input" placeholder="quantity" min="0">
+                <button class="add-to-cart-btn">Add to Cart</button>
             </div>
-
         </div>
 
         <div class="inventory">
@@ -36,13 +183,11 @@
                 alt="Dell Precision 7860">
             <h4>Dell Precision 7860</h4>
             <div class="add-to-cart-section">
-                <button class="add-to-cart-btn">Add to Cart</button>
                 <input type="number" class="quantity-input" placeholder="quantity" min="0">
+                <button class="add-to-cart-btn">Add to Cart</button>
             </div>
         </div>
-
     </div>
-
 </body>
 
 </html>
