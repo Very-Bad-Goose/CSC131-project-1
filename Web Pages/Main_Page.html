@@ -1,42 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VTS Inventory</title>
-    <link rel="stylesheet" type="text/css" href="Inventory.css">
+    <style>
+        /* Resetting some default margin */
+        body, h1, h3 {
+            margin: 0;
+        }
+
+        /* Global styles */
+        body {
+            font-family: sans-serif;
+            background-color: white;
+            margin: 0;
+        }
+
+        /* Header strip */
+        .header-strip {
+            background-color: darkblue;
+            color: white;
+            padding: 20px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-strip img {
+            width: auto;
+            height: auto;
+            max-width: 160px;
+            max-height: 80px;
+            margin-right: 20px;
+        }
+
+        /* Inventory heading */
+        .inventory-heading {
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Inventory wrapper */
+        .inventory-wrapper {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        /* Inventory list */
+        .inventory-list {
+            flex: 1;
+            max-width: 300px;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .inventory-list img {
+            width: 100%;
+            height: auto;
+            max-height: 150px; /* Adjusted height */
+        }
+
+        .inventory-list h3 {
+            margin-top: 10px;
+        }
+    </style>
 </head>
+
 <body>
     <div class="header-strip">
         <img src="https://raw.githubusercontent.com/Very-Bad-Goose/CSC131-project-1/main/Logos/VTS_White.png"
-          alt="VTS Powered by Voyager logo">
+            alt="VTS Powered by Voyager logo">
+        <h1 class="inventory-heading">Welcome to the VTS Product Requisition System</h1>
     </div>
-
-    <h1 class="inventory-heading">Inventory</h1>
 
     <div class="inventory-wrapper">
         <div class="inventory-list">
-            <img src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/Dell%20Precision%207680.png?raw=true" alt="VTS inventory laptop" style="width:100%"/>
-        
-                <h3>Laptops</h3>
-            
+            <img src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/Dell%20Precision%207680.png?raw=true"
+                alt="VTS inventory laptop">
+            <h3>Laptops</h3>
         </div>
         <div class="inventory-list">
-            <img src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/Dell%20U242H%2024%20Monitor.png?raw=true"/>
-            <div>
-                <h3>Monitors</h3>
-            </div>
+            <img src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/Dell%20U242H%2024%20Monitor.png?raw=true"
+                alt="VTS inventory monitor">
+            <h3>Monitors</h3>
         </div>
         <div class="inventory-list">
-            <img src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/Dell%20WD19DC%20Dock.png?raw=true"/>
+            <img src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/Dell%20WD19DC%20Dock.png?raw=true"
+                alt="VTS inventory dock">
             <h3>Docks</h3>
         </div>
         <div class="inventory-list">
-            <img src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/MS%20Project.png?raw=true"/>
-            <div>
-                <h3>Softwares</h3>
-            </div>
+            <img src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/MS%20Project.png?raw=true"
+                alt="VTS inventory software">
+            <h3>Softwares</h3>
         </div>
     </div>
 </body>
+
 </html>
