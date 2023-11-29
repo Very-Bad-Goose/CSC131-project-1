@@ -40,3 +40,31 @@ window.onload = function () {
 // addToCart('Product 1');
 // addToCart('Product 2');
 // removeFromCart('Product 1');
+
+function ticketWcart(){
+    const cartItems = JSON.parse(localStorage.getItem('shoppingCart'));
+    const encodedData = encodeURIComponent(JSON.stringify(cartItems));
+    const url = "tickets/new?data=" + encodedData;
+    console.log(url);
+    window.location.href = url;
+}
+
+
+
+// const myObject = { key1: 'value1', key2: 'value2' };
+
+// // Convert the JavaScript object to a JSON string
+// const jsonString = JSON.stringify(myObject);
+
+// // Encode the JSON string to make it URL-safe
+// const encodedObject = encodeURIComponent(jsonString);
+
+// // Append it to a URL as a query parameter
+// const url = `/some-route?data=${encodedObject}`;
+
+// // Now 'url' contains the object encoded as a query parameter
+// console.log(url);
+
+
+
+
