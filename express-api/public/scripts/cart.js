@@ -5,8 +5,10 @@ let cart = [];
 
 // Add item to the cart
 function addToCart(item) {
-    quantity = document.getElementById(item + 'Q').value;
-    fullItem = {item,quantity}
+    itemName = document.getElementById(item + 'Name').innerText;
+    itemPrice = document.getElementById(item + 'Price').innerText;
+    itemQuantity = document.getElementById(item + 'Quant').value;
+    fullItem = {item,itemName,itemPrice,itemQuantity};
     cart.push(fullItem);
     console.log(fullItem);
     saveCart();
@@ -34,19 +36,13 @@ function loadCart() {
 // Initialize the cart when the page loads
 window.onload = function () {
   loadCart();
-};
-
-// Example usage
-// addToCart('Product 1');
-// addToCart('Product 2');
-// removeFromCart('Product 1');
+}
 
 function ticketWcart(){
     const cartItems = JSON.parse(localStorage.getItem('shoppingCart'));
     const encodedData = encodeURIComponent(JSON.stringify(cartItems));
     const url = "tickets/new?data=" + encodedData;
-    console.log(url);
-    window.location.href = url;
+    window.location.href = "/tickets";
 }
 
 

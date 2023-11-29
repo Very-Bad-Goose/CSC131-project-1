@@ -38,6 +38,24 @@
                           </div>
                         </div>
                         <!-- Text input -->
+                        <div class="container mt-4">
+                            <table id="contentsTable" class="table table-bordered">
+                              <thead>
+                                <tr>
+                                  <th>Item Name</th>
+                                  <th>Individual Price</th>
+                                  <th>Quantity</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>Row 1, Col 1</td>
+                                  <td>Row 1, Col 2</td>
+                                  <td>Row 1, Col 3</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
                         <div class="form-outline mb-4">
                             <input type="text" class="form-control" id="contents" name="contents" placeholder="Enter contents">
                             <label for="contents">contents</label>
@@ -116,5 +134,34 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script>
+            window.addEventListener('load', function() {
+              // Retrieve form elements by their IDs
+              var nameField = document.getElementById('contents');
+              
+              // Set default values for the form fields
+              nameField.value = ''
+              cartRaw = localStorage.getItem('shoppingCart');
+              cartParsed = JSON.parse(cartRaw);
+            const tableBody = document.getElementById('contentsTable');
+                cartParsed.forEach(obj => {
+                    const row = document.createElement('tr');
+                    
+                    // Loop through each property in the object and create table cells
+                    for (const prop in obj) {
+                    if (Object.prototype.hasOwnProperty.call(obj, prop)) {
+                        const cell = document.createElement('td');
+                        cell.textContent = obj[prop];
+                        row.appendChild(cell);
+                    }
+                    }
+                    
+                    // Append the row to the table body
+                    tableBody.appendChild(row);
+                });
+                
+
+            });
+          </script>
     </body>
 </html>
