@@ -3,6 +3,8 @@
 import pool from '../config/postgres_conn.js';
 import queries from '../models/item_queries.js';
 
+import Request from 'tedious';
+import connection from '../config/tedious_conn.js';
 
 // export const getItems = (req,res)=>{
 //     console.log('getting all items');
@@ -10,17 +12,19 @@ import queries from '../models/item_queries.js';
 // }
 
 export const getItems = (req,res)=>{
-    // postgre method
     pool.query(queries.getItems,(error, results)=>{
         if (error) throw error;
         // res.status(200).json(results.rows);
         res.status(200).render('../views/vtsItemPage01', { data: results.rows });
     })
 
-    //tedious method
+    // tedious method
 
-
-    
+    const request = new Request(queries.getItems, (err, rowCount, rows)=>{
+        if (err) throw err;
+        res.status(200).render('../views/vtsItemPage01', { data: rows });
+    })
+    connection.execSql(request);
 };
 
 export const newItem = (req,res)=>{
