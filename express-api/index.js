@@ -24,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 
 const cssFilePath = '/css/';
+const assetFilePath = '/assets/';
 app.use((req, res, next) => {
     res.locals.cssPath = cssFilePath;
     next();
@@ -34,10 +35,11 @@ app.use('/tickets',ticketsRoutes);
 app.use('/items',itemsRoutes);
 
 app.get('/', (req,res)=>{
-    console.log('running...');
+    // console.log('running...');
 
     // res.send('hello');
-    res.sendFile('vtsFormPage02.html', { root: __dirname });
+    // res.sendFile('vtsLanding.html', { root: __dirname });
+    res.status(200).render('../views/categorySelect');
 });
 
 app.listen(PORT,() => console.log(`server running on this port: http://localhost:${PORT}`));

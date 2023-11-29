@@ -10,32 +10,33 @@
 
 <body>
     <div class="header-strip">
-        <img src="https://raw.githubusercontent.com/Very-Bad-Goose/CSC131-project-1/main/Logos/VTS_White.png"
-            alt="VTS Powered by Voyager logo">
-        <!--connect back button to previous page-->
-        <a href="" class="back-arrow">
-            <img src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/Back%20Arrow.png?raw=true"
-                alt="back arrow">
+        <img src="/Logos/VTS_White.png" alt="VTS Powered by Voyager logo">
+        <a href="inventory.html" class="back-arrow">
+            <img src="/Inventory Images/Back Arrow.png" alt="back arrow">
         </a>
     </div>
-    </a>
+    <h1 class="inventory-heading">Add Item</h1>
+    <div class="inventory-container">
 
-    <div class="add-form"
-        style="font-size: large; padding-right: 50%; display: inline-block; width: 500px; text-align: right;">
-        <br><br><br>
-        <form action="">
-            <label for="iname">Item Name:</label>
-            <input type="text" id="iname" name="iname" required><br><br>
-            <label for="lname">Manufacturer:</label>
-            <input type="text" id="lname" name="lname"><br><br>
-            <label for="iname">Item Name:</label>
-            <input type="" id="iname" name="iname"><br><br>
-            <label for="itemImage">Image:</label>
-            <input type="file" accept="img" id="itemImage"><br><br>
-            <input type="submit" value="Submit" style="text-align: right;">
-        </form>
+        <div class="add-form"
+            style="font-size: large; padding-right: 50%; display: inline-block; width: 500px; text-align: right;">
+            <br><br><br>
+            <form action="">
+                <label for="iname">Item Name:</label>
+                <input type="text" id="iname" name="iname" required><br><br>
+                <label for="mname">Manufacturer:</label>
+                <input type="text" id="mname" name="mname"><br><br>
+                <label for="aname">Archetype:</label>
+                <input type="text" id="aname" name="aname"><br><br>
+                <label for="cname">Category:</label>
+                <input type="text" id="cname" name="cname" required><br><br>
+
+                <label for="itemImage" style="position: relative; left: 70px">Item Image:</label>
+                <input type="file" accept="img" id="itemImage" style="position: relative; left: 70px"><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
     </div>
-
 
     <script>
 

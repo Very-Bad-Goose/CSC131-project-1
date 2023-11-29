@@ -3,7 +3,7 @@
         <header class="pt-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center">
-                    <h1 class="display-4 fw-bolder">Tickets</h1>
+                    <h1 class="display-4 fw-bolder">Requests</h1>
                 </div>
             </div>
         </header>
@@ -11,6 +11,20 @@
         <main>
             <section>
                 <div class="container mt-5">
+                        <div class="d-flex justify-content-between align-items-center mt-5 mb-3">
+                            <div> <!-- Empty div for spacing on the left side -->
+                                <!-- Your content here -->
+                            </div>
+                            <div>
+                                <a href="/tickets/new" class="btn btn-primary">Submit New Request</a>
+                            </div>
+                        </div>
+                    <!-- <div class="row">
+                        <div class="col-md-6"></div>
+                        <div class="d-flex justify-content-between align-items-center mt-5">
+                            <a href="/tickets/new" class="btn btn-primary">Submit New Ticket</a>
+                        </div>
+                    </div> -->
                     <div class="row">
                         <% data.forEach(function(ticket) { %>
                             <% if (!ticket.deleted) { %>
@@ -23,7 +37,7 @@
                                             <p class="card-text">Requested By: <%= ticket.requestedby %></p>
                                         </div>
                                         <div>
-                                            <a href="/tickets/show<%= ticket.id %>" class="btn btn-primary">Show Ticket</a>
+                                            <a href="/tickets/show<%= ticket.id %>" class="btn btn-primary">Show Request</a>
                                         </div>
                                     </div>
                                 </div>

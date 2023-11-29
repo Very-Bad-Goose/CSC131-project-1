@@ -26,6 +26,41 @@ export const getItems = (req,res)=>{
     })
     connection.execSql(request);
 };
+export const getItemCat = (req,res)=>{
+    res.status(200).render('../views/categorySelect');    
+};
+export const getComputers = (req,res)=>{
+    pool.query(queries.getComputers,(error, results)=>{
+        if (error) throw error;
+        // res.status(200).json(results.rows);
+        res.status(200).render('../views/itemIndexComputer', { data: results.rows });
+    })
+    
+};
+export const getDocks = (req,res)=>{
+    pool.query(queries.getDocks,(error, results)=>{
+        if (error) throw error;
+        // res.status(200).json(results.rows);
+        res.status(200).render('../views/itemIndexDock', { data: results.rows });
+    })
+    
+};
+export const getMonitors = (req,res)=>{
+    pool.query(queries.getMonitors,(error, results)=>{
+        if (error) throw error;
+        // res.status(200).json(results.rows);
+        res.status(200).render('../views/itemIndexMonitor', { data: results.rows });
+    })
+    
+};
+export const getSoftware = (req,res)=>{
+    pool.query(queries.getSoftware,(error, results)=>{
+        if (error) throw error;
+        // res.status(200).json(results.rows);
+        res.status(200).render('../views/itemIndexSoftware', { data: results.rows });
+    })
+    
+};
 
 export const newItem = (req,res)=>{
     res.status(200).render('../views/vtsAddItem');
@@ -122,59 +157,12 @@ const meths = {
     getItems,
     addItem,
     newItem,
-    deleteItem
+    deleteItem,
+    getItemCat,
+    getComputers,
+    getDocks,
+    getMonitors,
+    getSoftware
 };
 
 export default meths;
-
-// import { v4 as uuidv4 } from 'uuid';
-// let items = [
-//     {
-//         "archtype":"stuff",
-//         "category":"pc",
-//         "manufacturer":"Voyager Space",
-//         "name":"pic#1",
-//         "imagepath":"https://picsum.photos/id/1/200/300",
-//         id:uuidv4()
-//     },
-//     {
-//         "archtype":"stuff",
-//         "category":"monitor",
-//         "manufacturer":"Voyager Space",
-//         "name":"pic#2",
-//         "imagepath":"https://picsum.photos/id/1/200/300",
-//         id:uuidv4()
-//     },
-//     {
-//         "archtype":"stuff",
-//         "category":"misc",
-//         "manufacturer":"Voyager Space",
-//         "name":"pic#3",
-//         "imagepath":"https://picsum.photos/id/1/200/300",
-//         id:uuidv4()
-//     },
-//     {
-//         "archtype":"stuff",
-//         "category":"pens",
-//         "manufacturer":"Voyager Space",
-//         "name":"pic#4",
-//         "imagepath":"https://picsum.photos/id/1/200/300",
-//         id:uuidv4()
-//     },
-//     {
-//         "archtype":"stuff",
-//         "category":"office",
-//         "manufacturer":"Voyager Space",
-//         "name":"pic#5",
-//         "imagepath":"https://picsum.photos/id/1/200/300",
-//         id:uuidv4()
-//     },
-//     {
-//         "archtype":"stuff",
-//         "category":"desk",
-//         "manufacturer":"Voyager Space",
-//         "name":"pic#6",
-//         "imagepath":"https://picsum.photos/id/1/200/300",
-//         id:uuidv4()
-//     }
-// ];

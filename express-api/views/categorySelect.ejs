@@ -1,13 +1,5 @@
-h1 {
-	color: #0000FF;
-	font-size: 3rem;
-  max-width: 50%;
-  position: relative;
-  left: 80px;
-  bottom: 20px;
-}
-
-
+<%- include('header') %>
+<style>
 /* Button */
 .dropbtn {
   background-color: #04AA6D;
@@ -228,10 +220,14 @@ h1 {
     color:  darkblue;
 }
 
+.center-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .inventory-wrapper {
     display: flex;
     justify-content: flex-start;
-    padding: 20px;
     flex-wrap: wrap;
 }
 
@@ -242,6 +238,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 250px;
     
 }
 .inventory-list img:hover {
@@ -377,3 +374,46 @@ height: 100px;
   border-radius: 5px;
   max-width: 14%;
 }
+</style>
+    <!-- Header-->
+    <header class="pt-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center">
+                <h1 class="display-4 fw-bolder">Select a Category</h1>
+                <!-- <p class="lead fw-normal text-white-50 mb-0"></p> -->
+            </div>
+        </div>
+    </header>
+    <div class="center-wrapper">
+        <div class="inventory-wrapper">
+            <a href="/items/computers" class="inventory-list">
+                <img src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/Dell%20Precision%207680.png?raw=true"
+                    alt="VTS inventory laptop" style="width:100%" />
+
+                <h3>Computers</h3>
+
+            </a>
+            <a href="/items/monitors" class="inventory-list">
+                <img
+                    src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/Dell%20U242H%2024%20Monitor.png?raw=true" />
+                <div>
+                    <h3>Monitors</h3>
+                </div>
+            </a>
+            <a href="/items/docks" class="inventory-list">
+                <img
+                    src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/Dell%20WD19DC%20Dock.png?raw=true" />
+                <h3>Docks</h3>
+            </a>
+            <a href="/items/software" class="inventory-list">
+                <img
+                    src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/MS%20Project.png?raw=true" />
+                <div>
+                    <h3>Software</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

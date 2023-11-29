@@ -3,7 +3,7 @@
         <header class="pt-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center">
-                    <h1 class="display-4 fw-bolder">All Items</h1>
+                    <h1 class="display-4 fw-bolder">Computers</h1>
                     <!-- <p class="lead fw-normal text-white-50 mb-0"></p> -->
                 </div>
             </div>
@@ -12,8 +12,10 @@
         <main>
             <section>
                 <div class="container mt-5">
+                    
                     <div class="d-flex justify-content-between align-items-center mt-5 mb-3">
-                        <div><!-- not typo, for positioning -->
+                        <div>
+                            <a href="/items/icats" class="btn btn-primary">Back</a>
                         </div>
                         <div>
                             <a href="/items/new" class="btn btn-primary">Create New Item</a>
@@ -22,12 +24,12 @@
                     <% data.forEach(function(item) { %>
                         <div class="full-width">
                             <div class="card custom-card">
-                                <img class="card-img-top py-2 px-2" src="<%= cssPath %><%= item.imagepath %>" alt="Product Image" style="max-height: 400px; max-width: 300px;" />
+                                <img class="card-img-top py-2 px-2" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="Product Image" style="max-height: 400px; max-width: 300px;" />
                                 <div class="card-body p-4">
-                                    <h6 class="card-text mb-1">Item ID: <%= item.id %></h6>
-                                    <p class="card-title mb-1"><%= item.manufacturer %></p>
                                     <h5 class="fw-bolder"><%= item.item_name %></h5>
-                                    <p class="card-title mb-1"><%= item.category %></p>
+                                    <p><%= item.price %></p>
+                                    <h6 class="card-text mb-1">Item ID: <%= item.id %></h6>
+                                    <p class="card-title mb-1"><%= item.name %></p>
                                     <p class="card-text mb-1"><%= item.price %></p>
                                 </div>
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent d-flex justify-content-between align-items-center">
@@ -35,7 +37,7 @@
                                     </div>
                                     <div>
                                         <div>
-                                            <a onclick="addToCart('Product Name', 10)" class="btn btn-outline-dark me-2" href="#">Add</a>
+                                            <a class="btn btn-outline-dark me-2" href="#">Add</a>
                                         </div>
                                         <div>
                                             <form action="/items/del/<%= item.id %>" method="POST">
@@ -57,7 +59,6 @@
             </section>
             
         </main>
-        <%- include('footer') %>
         <!-- Footer-->
         <footer class="py-5">
             <!-- <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Valley Tech Systems</p></div> -->
