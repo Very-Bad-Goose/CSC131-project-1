@@ -1,0 +1,56 @@
+<script>
+    // Function to add items to the cart
+function addToCart(productName, price, quant) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // Check if the item is already in the cart
+    const found = cart.find(item => item.productName === productName);
+    if (found) {
+        found.quantity++;
+    } else {
+        cart.push({ productName, price, quantity: 1 });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCart();
+}
+
+// Function to display the cart
+function displayCart() {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let cartDisplay = document.getElementById('cart');
+    cartDisplay.innerHTML = '';
+
+    cart.forEach(item => {
+        let itemElement = document.createElement('div');
+        itemElement.innerHTML = `<p>${item.productName} - Quantity: ${item.quantity}</p>`;
+        cartDisplay.appendChild(itemElement);
+    });
+}
+
+// Display the cart on page load
+displayCart();
+</script>
+
+<script>
+    document.getElementById('cartButton').addEventListener('click', () => {
+      // Get items from localStorage (assuming 'shoppingCart' is the key)
+      const cartItems = JSON.parse(localStorage.getItem('shoppingCart'));
+    
+      // Send cartItems to the server using fetch
+      fetch('/cartItems', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ items: cartItems }),
+      })
+      .then(response => response.text())
+      .then(message => {
+        // Handle the response from the server (e.g., show a confirmation)
+        alert(message); // Show a message from the server (optional)
+      })
+      .catch(error => console.error('Error:', error));
+    });
+    </script>
+<script src="<%=scriptPath%>cart.js"></script>
