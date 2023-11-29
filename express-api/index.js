@@ -25,8 +25,11 @@ app.set('views', path.join(__dirname, 'views'));
 
 const cssFilePath = '/css/';
 const assetFilePath = '/assets/';
+const scriptFilePath = '/scripts/';
 app.use((req, res, next) => {
     res.locals.cssPath = cssFilePath;
+    res.locals.assetPath = assetFilePath;
+    res.locals.scriptPath = scriptFilePath;
     next();
 });
 
