@@ -33,11 +33,6 @@ function loadCart() {
   }
 }
 
-function clearCart(){
-  cart = [];
-  localStorage.removeItem('shoppingCart');
-}
-
 // Initialize the cart when the page loads
 window.onload = function () {
   loadCart();
