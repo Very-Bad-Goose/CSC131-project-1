@@ -23,16 +23,16 @@
                           <div class="col">
                             <div class="form-outline">
                                 
-                                    <input type="text" class="form-control" id="requestedby" name="requestedby" placeholder="Enter requested by">
-                                    <label for="requestedby">Requested By</label>
+                                <label for="requestedby">Requested By</label>
+                                <input type="text" class="form-control" id="requestedby" name="requestedby" placeholder="Enter requested by">
                                 
                             </div>
                           </div>
                           <div class="col">
                             <div class="form-outline">
                                 
-                                    <input type="text" class="form-control" id="receiver" name="receiver" placeholder="Enter receiver">
-                                    <label for="receiver">Receiver</label>
+                                <label for="receiver">Receiver</label>
+                                <input type="text" class="form-control" id="receiver" name="receiver" placeholder="Enter receiver">
                                
                             </div>
                           </div>
@@ -55,12 +55,12 @@
                               <tbody id="contentsTable" >
                               </tbody>
                             </table>
-                          </div>
-
+                        </div>
+                        <div onclick="clearCartRefresh()" class="btn btn-danger btn-sm btn-block mb-4">Clear Cart</div>
                         <!-- Number input -->
                         <div class="form-outline mb-4">
                             <label class="form-label" for="dept">Department</label>
-                            <select name="dept" id="dept">
+                            <select class="form-select" name="dept" id="dept">
                                 <option value="1">Department 1</option>
                                 <option value="2">Department 2</option>
                                 <option value="3">Department 3</option>
@@ -70,8 +70,8 @@
                       
                         <!-- Message input -->
                         <div class="form-outline mb-4">
-                            <textarea class="form-control" id="notes" name="notes" rows="4"></textarea>
                             <label for="notes">Notes</label>
+                            <textarea class="form-control" id="notes" name="notes" rows="4"></textarea>
                         </div>
                     
                       
@@ -134,6 +134,13 @@
                     cart = [];
                     localStorage.removeItem('shoppingCart');
             }
+            function clearCartRefresh(){
+                    cart = [];
+                    localStorage.removeItem('shoppingCart');
+                    location.reload();
+            }
+
+            
             window.addEventListener('load', function() {
               // Retrieve form elements by their IDs
               var contentsField = document.getElementById('contents');
