@@ -129,16 +129,9 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
+        <%- include('footer') %>
         <script>
-            function clearCart(){
-                    cart = [];
-                    localStorage.removeItem('shoppingCart');
-            }
-            function clearCartRefresh(){
-                    cart = [];
-                    localStorage.removeItem('shoppingCart');
-                    location.reload();
-            }
+            
 
             
             window.addEventListener('load', function() {
@@ -173,7 +166,6 @@
                             });
 
                             anchor.textContent = obj[prop];
-                            cell.appendChild(anchor);
                             } else {
                             cell.textContent = obj[prop];
                             }

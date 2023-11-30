@@ -40,7 +40,7 @@ export const addAdminTicket = (req,res)=>{
     pool.query(queries.addTicket,[requestedby,receiver,contents,notes,dept],(error, results)=>{
         if (error) throw error;
         console.log("Ticket created", [requestedby,receiver,contents,notes,dept]);
-        res.status(201).redirect("/tickets");
+        res.status(201).redirect("/tickets/adminConfirmation");
     });
 };
 //READ
