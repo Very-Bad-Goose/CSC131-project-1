@@ -5,6 +5,9 @@ import queries from '../models/item_queries.js';
 
 import Request from 'tedious';
 import connection from '../config/tedious_conn.js';
+import TYPES from 'tedious';
+
+import tdqueries from '../models/tditem_queries.js';
 
 // export const getItems = (req,res)=>{
 //     console.log('getting all items');
@@ -20,22 +23,46 @@ export const getItems = (req,res)=>{
 
     // tedious method
 
-    const request = new Request(queries.getItems, (err, rowCount, rows)=>{
+    const request = new Request(tdqueries.getItems, (err, rowCount, rows)=>{
         if (err) throw err;
         res.status(200).render('../views/vtsItemPage01', { data: rows });
     })
     connection.execSql(request);
 };
+
 export const getItemCat = (req,res)=>{
-    res.status(200).render('../views/categorySelect');    
+    res.status(200).render('../views/categorySelect');
+
+    // tedious method
+
+    const request = new Request(tdqueries.getItemCat, (err, rowCount, rows) => {
+        if (err) throw err;
+        res.status(200).render('../views/categorySelect');
+    })
 };
+
 export const getComputers = (req,res)=>{
     pool.query(queries.getComputers,(error, results)=>{
         if (error) throw error;
         // res.status(200).json(results.rows);
         res.status(200).render('../views/itemIndexComputer', { data: results.rows });
+
+    // tedious method
+
+    const request = new Request(tdqueries.getComputers, (err, rowCount, rows) => {
+        if (err) throw err;
+        res.status(200).render('../views/itemIndexComputer', { data: rows});
+
+        connection.execSql(request);
+    });
+
     })
-    
+
+    const request = new Request(tdqueries.getComputers, (err, rows)=>{
+        if (err) throw err;
+        res.status(200).render('../views/itemIndexComputer', { data : rows });
+    })
+    connection.executeSql(request);
 };
 export const getDocks = (req,res)=>{
     pool.query(queries.getDocks,(error, results)=>{
@@ -44,6 +71,13 @@ export const getDocks = (req,res)=>{
         res.status(200).render('../views/itemIndexDock', { data: results.rows });
     })
     
+    // tedious method
+
+    const request = new Request(tdqueries.getDocks, (err, rows)=>{
+        if (err) throw err;
+        res.status(200).render('../views/itemIndexDock', { data : rows });
+    })
+    connection.executeSql(request);
 };
 export const getMonitors = (req,res)=>{
     pool.query(queries.getMonitors,(error, results)=>{
@@ -52,6 +86,13 @@ export const getMonitors = (req,res)=>{
         res.status(200).render('../views/itemIndexMonitor', { data: results.rows });
     })
     
+    // tedious method
+
+    const request = new Request(tdqueries.getMonitors, (err, rowCount, rows)=>{
+        if (err) throw err;
+        res.status(200).render('../views/itemIndexMonitor', { data : rows });
+    })
+    connection.executeSql(request);
 };
 export const getSoftware = (req,res)=>{
     pool.query(queries.getSoftware,(error, results)=>{
@@ -60,6 +101,13 @@ export const getSoftware = (req,res)=>{
         res.status(200).render('../views/itemIndexSoftware', { data: results.rows });
     })
     
+    // tedious method
+
+    const request = new Request(tdqueries.getSoftware, (err, rows)=>{
+        if (err) throw err;
+        res.status(200).render('../views/itemIndexSoftware', { data : rows });
+    })
+    connection.executeSql(request);
 };
 
 export const newItem = (req,res)=>{
@@ -90,6 +138,17 @@ export const addItem = (req,res)=>{
         res.status(201).redirect("/items");
         // res.redirect('/items');
     });
+
+    // tedious method
+
+    //const {archetype, category, manufacturer, item_name, imagepath, price} = req.body;
+    const request = new Request(tdqueries.addItem, (err) => {
+        if (err) throw err;
+        console.log('item created');
+        res.status(201).redirect('/items');
+    });
+
+    request.addParameter('archetype', TYPES.NVarChar, archetype);
     
     // res.send(`Received form data: Param1 - ${archetype}, Param2 - ${category}`);
 };

@@ -17,6 +17,11 @@ const config = {
             password: 'D0N0tus3'
         }
     },
+    options: {
+        port: 1433,
+        database: 'VTS_AzureSQL',
+        encrypt: true
+    }
 };
 
 // Turns the Connection object into a connection variable, 

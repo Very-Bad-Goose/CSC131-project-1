@@ -14,8 +14,12 @@ const config = {
         options: {
             userName: 'VTSInventory',
             password: 'D0N0tus3'
+        },
+        options: {
+            port: 1433,
+            database: 'VTS_AzureSQL'
         }
-    },
+    }
 };
 
 // Turns the Connection object into a connection variable, 
@@ -31,4 +35,5 @@ connection.connect((err) => {
         throw err;
     }
     console.log('Connection Successful');
+    connection.close();
 });
