@@ -1,1 +1,13 @@
 <script src="<%=scriptPath%>cart.js"></script>
+<script>
+    function confirmDelete(formnum){
+        const result = window.confirm("Are you sure you want to delete?");
+        if (result) {
+            // Code to perform deletion
+            console.log()
+            document.getElementById(formnum).submit();
+        } else {
+            // Code when "Cancel" is clicked
+        }
+    }
+</script>

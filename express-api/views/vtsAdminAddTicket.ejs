@@ -1,4 +1,4 @@
-<%- include('header') %>
+<%- include('adminHeader') %>
     <main>
         <!-- Header-->
         <header class="pt-5">
@@ -14,11 +14,11 @@
             
             <div class="container mt-5">
                 <div class="d-flex justify-content-between align-items-center mt-5">
-                    <a href="/" class="btn btn-primary">Back</a>
+                    <a href="/tickets" class="btn btn-primary">Back to All Requests</a>
                 </div>
                 <div class="card mt-4">
                 <div class="row gx-4 gx-lg-5 justify-content-center px-5 pt-5">
-                    <form action="/tickets/" method="POST">
+                    <form action="/tickets/admin" method="POST">
                         <div class="row mb-4">
                           <div class="col">
                             <div class="form-outline">
@@ -39,9 +39,12 @@
                         </div>
                         <!-- hidden input for contents -->
                         <div class="form-outline mb-4">
-                            <input type="hidden" class="form-control" id="contents" name="contents" placeholder="Enter contents">
+                            <label for="contents">Contents</label>
+                            <textarea class="form-control" id="contents" name="contents" rows="4">
+                            </textarea>
+                            <!-- <input type="hidden" class="form-control" id="contents" name="contents" placeholder="Enter contents"> -->
                         </div>
-                        <div class="container mt-4">
+                        <!-- <div class="container mt-4">
                             <label for="contents">Contents</label>
                             <table class="table table-bordered">
                               <thead>
@@ -55,8 +58,8 @@
                               <tbody id="contentsTable" >
                               </tbody>
                             </table>
-                        </div>
-                        <div onclick="clearCartRefresh()" class="btn btn-danger btn-sm btn-block mb-4">Clear Cart</div>
+                        </div> -->
+                        <!-- <div onclick="clearCartRefresh()" class="btn btn-danger btn-sm btn-block mb-4">Clear Cart</div> -->
                         
                         <div class="form-outline mb-4">
                             <label class="form-label" for="dept">Department</label>

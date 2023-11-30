@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 
+import adminRoutes from './routes/admin.js';
 import ticketsRoutes from './routes/tickets.js';
 import itemsRoutes from './routes/items.js';
 
@@ -13,41 +14,13 @@ import * as path from 'path';
 
 import jwt from 'jsonwebtoken';
 
+
+
+
 const app = express();
 const PORT = 8080;
 
-// Middleware for authentication
-const authenticateToken = (req, res, next) => {
-    const token = req.headers.authorization; // Retrieve token from request header
 
-    if (!token) {
-        return res.sendStatus(401); // Unauthorized if no token is present
-    }
-
-    jwt.verify(token, 'your_secret_key', (err, user) => { // Verify the token
-        if (err) {
-        return res.sendStatus(403); // Forbidden if token is invalid
-        }
-        req.user = user; // Attach the user data to the request object for further use
-        next(); // Continue to the next middleware or route handler
-    });
-};
-
-// Example login route that generates and sends a token
-app.post('/adminLogin', (req, res) => {
-    // Authenticate user, retrieve user information, and generate a token
-    const passwordParam = req.body.password;
-    if(passwordParam == 'test'){
-        const user = { id: 1, username: 'example' };
-        const accessToken = jwt.sign(user, 'your_secret_key');
-        res.json({ accessToken }); // Send the token to the client
-    }
-  });
-  
-  // Protected route that requires authentication
-  app.get('/protected', authenticateToken, (req, res) => {
-    res.json({ data: 'Protected data' }); // Respond with protected data
-  });
 
 
 
@@ -70,7 +43,7 @@ app.use((req, res, next) => {
     next();
 });
 
-
+app.use('/admin',adminRoutes);
 app.use('/tickets',ticketsRoutes);
 app.use('/items',itemsRoutes);
 
@@ -84,5 +57,71 @@ app.get('/', (req,res)=>{
 app.get('/admin', (req,res)=>{
     res.status(200).render('../views/adminLogin');
 });
+
+
+
+// Secret key to sign and verify tokens
+const secretKey = 'yourSecretKey'; // Change this to a more secure value
+
+// Mock user data (in place of a database)
+const users = [
+  {
+    id: 1,
+    username: 'example_user'
+    // Add other user information here
+  },
+  {
+    id: 2,
+    username: 'bejan'
+    // Add other user information here
+  },
+
+];
+
+// Route to generate a token upon successful authentication
+app.post('/login', (req, res) => {
+  // For demo purposes, let's assume authentication is successful with provided credentials
+  // In a real scenario, this would involve user authentication logic (e.g., username/password validation)
+
+  // Assuming the user is authenticated successfully
+  const user = users.find(u => u.username === req.body.username); // Fetch user data
+
+  if (!user) {
+    return res.status(401).json({ message: 'Authentication failed' });
+  }
+
+  // Generate JWT token
+  const token = jwt.sign({ userId: user.id }, secretKey, { expiresIn: '1h' }); // Sign the token with user's ID
+  
+  // Return the token to the client
+  res.json({ token });
+});
+
+// Route to access a protected resource
+app.get('/protected', (req, res) => {
+  const token = req.headers.authorization?.split(' ')[1]; // Extract token from Authorization header
+
+  if (!token) {
+    return res.status(401).json({ message: 'Token not provided' });
+  }
+
+  // Verify the token
+  jwt.verify(token, secretKey, (err, decodedToken) => {
+    if (err) {
+      return res.status(403).json({ message: 'Invalid token' });
+    }
+
+    // Token is valid
+    const userId = decodedToken.userId;
+
+    // Access the protected resource or perform actions based on the user ID
+    res.json({ message: `Access granted for user ID ${userId}` });
+  });
+});
+
+
+
+
+
 
 app.listen(PORT,() => console.log(`server running on this port: http://localhost:${PORT}`));

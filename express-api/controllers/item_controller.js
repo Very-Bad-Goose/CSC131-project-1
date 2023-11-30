@@ -120,15 +120,14 @@ export const addItem = (req,res)=>{
 // }
 
 export const deleteItem = (req,res)=>{
-    const id = parseInt(req.body.id);
-    // res.send(`item ${id}`);
-    // res.send(req.body.id);
+    const id = req.body.id;
     pool.query(queries.getItem,[id],(error, results)=>{
         if (!results.rows.length){
-            res.send(`student ${id} doesn't exist`);
+            res.send(`${id} doesn't exist`);
         }else{
             pool.query(queries.deleteItem,[id],(error, results)=>{
                 if (error) throw error;
+                console.log(`${id} deleted`)
                 res.status(200).redirect("/items");
             })
         }

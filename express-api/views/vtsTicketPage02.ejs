@@ -1,4 +1,4 @@
-<%- include('header') %>
+<%- include('adminHeader') %>
         <!-- Header-->
         <header class="pt-5">
             <div class="container px-4 px-lg-5 my-5">
@@ -26,9 +26,9 @@
                                     </form>
                                 </div>
                                 
-                                <form action="/tickets/delete" method="POST">
+                                <form id="deleteForm" action="/tickets/delete" method="POST">
                                     <input type="hidden" name="id" value="<%= data.id %>">
-                                    <button type="submit" onclick="confirmDelete()" class="btn btn-danger">Delete</button>
+                                    <a onclick="confirmDelete()" class="btn btn-danger">Delete</a>
                                 </form>
                             </div>
                             
@@ -52,18 +52,10 @@
         
         <!-- Footer-->
         <footer class="py-5">
-            <!-- <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Valley Tech Systems</p></div> -->
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Valley Tech Systems</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <script>
-            function confirmDelete() {
-                if (confirm('Are you sure you want to delete this item?')) {
-                    document.getElementById('deleteForm').submit();
-                }
-            }
-        </script>
     </body>
+    <%- include('footer') %>
 </html>

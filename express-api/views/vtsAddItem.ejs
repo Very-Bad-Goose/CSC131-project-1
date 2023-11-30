@@ -1,39 +1,60 @@
-<%- include('header') %>
+<%- include('adminHeader') %>
         <main>
+        <!-- Header-->
+        <header class="pt-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center">
+                    <h1 class="display-4 fw-bolder">Create New Item</h1>
+                </div>
+            </div>
+        </header>
+
             <section class="py-5">
                 <div class="container px-4 px-lg-5">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="/items" class="btn btn-primary">Back to Item Manager</a>
+                    </div>
+                    <div class="card mt-4 pb-5">
                     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                         <div class="container mt-5">
-                            <h2>Item Details</h2>
                             <form action="/items/" method="POST">
-                                <div class="form-group">
+                                <div class="form-group  mb-4">
                                     <label for="archetype">Archetype</label>
                                     <input type="text" class="form-control" id="archetype" name="archetype" placeholder="Enter archetype">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="category">Department</label>
+                                    <select class="form-select" name="category" id="category">
+                                        <option value="computers">computers</option>
+                                        <option value="monitors">monitors</option>
+                                        <option value="docks">docks</option>
+                                        <option value="software">software</option>
+                                    </select>
+                                </div>
+                                <!-- <div class="form-group">
                                     <label for="category">Category</label>
                                     <input type="text" class="form-control" id="category" name="category" placeholder="Enter category">
-                                </div>
-                                <div class="form-group">
+                                </div> -->
+                                <div class="form-group  mb-4">
                                     <label for="manufacturer">Manufacturer</label>
                                     <input type="text" class="form-control" id="manufacturer" name="manufacturer" placeholder="Enter manufacturer">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group  mb-4">
                                     <label for="item_name">Item Name</label>
                                     <input type="text" class="form-control" id="item_name" name="item_name" placeholder="Enter item name">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group  mb-4">
                                     <label for="imagepath">Image Path</label>
                                     <input type="text" class="form-control" id="imagepath" name="imagepath" placeholder="Enter image path">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group  mb-4">
                                     <label for="price">Price</label>
                                     <input type="number" class="form-control" id="price" name="price" placeholder="Enter price" min="0" step=".01">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
                         </div>
-          
+                    </div>
                     </div>
                 </div>
             </section>

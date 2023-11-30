@@ -4,14 +4,14 @@ WHERE item_name = 'Adobe Acrobat Pro';
 
 UPDATE items
 SET imagepath = 'DellPrecision5560.png'
-WHERE item_name = 'Dell Preceision 5560';
+WHERE item_name = 'Dell Precision 5560';
 
 UPDATE items
 SET imagepath = 'DellPrecision7680.png'
-WHERE item_name = 'Dell Preceision 7680 with RTX Card';
+WHERE item_name = 'Dell Precision 7680 with RTX Card';
 UPDATE items
 SET imagepath = 'DellPrecision7680.png'
-WHERE item_name = 'Dell Preceision 7680 without RTX Card';
+WHERE item_name = 'Dell Precision 7680 without RTX Card';
 
 UPDATE items
 SET imagepath = 'DellU242H24.png'

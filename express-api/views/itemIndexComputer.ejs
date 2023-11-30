@@ -15,10 +15,7 @@
                     
                     <div class="d-flex justify-content-between align-items-center mt-5 mb-3">
                         <div>
-                            <a href="/items/icats" class="btn btn-primary">Back</a>
-                        </div>
-                        <div>
-                            <a href="/items/new" class="btn btn-primary">Create New Item</a>
+                            <a href="/" class="btn btn-primary">Back</a>
                         </div>
                     </div>
                     <% data.forEach(function(item) { %>
@@ -39,15 +36,6 @@
                                         <div class="add-to-cart-section">
                                             <input class="quantity-input" type="number" value='1' id="<%= item.id %>Quant" name="<%= item.id %>Quant" min="1" step="1">
                                             <a onclick="addToCart('<%= item.id %>');" class="btn btn-outline-dark me-2" href="#">Add</a>
-                                        </div>
-                                        <div>
-                                            <form action="/items/del/<%= item.id %>" method="POST">
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                <input type="hidden" name="id" value="<%= item.id %>">
-                                                <button type="submit" class="btn btn-danger btn-sm">
-                                                    Delete
-                                                </button>
-                                            </form>
                                         </div>
                                     </div>
                                 </div>
