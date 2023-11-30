@@ -12,6 +12,7 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="<%= cssPath %>styles.css" rel="stylesheet" />
     <link href="<%= cssPath %>additional.css" rel="stylesheet" />
+    <link rel="stylesheet" href="<%= cssPath %>vts.css">
     <style>
         /* Adjustments for vertical stacking */
         .full-width {
@@ -63,7 +64,7 @@
                     </li>
                 </ul>
                 <form class="d-flex">
-                    <button id="cartBtn" class="btn btn-outline-dark" type="submit">
+                    <button id="cartBtn" onclick="ticketWcart()" class="btn btn-outline-dark" type="submit">
                         <a href="/tickets/new">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
