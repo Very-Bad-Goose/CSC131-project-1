@@ -2,9 +2,12 @@
 
 // Initialize the shopping cart
 let cart = [];
+let cartNumber = 0;
 
 // Add item to the cart
 function addToCart(item) {
+    cartNumber += 1;
+    document.getElementById("cartCounter").innerText = cartNumber;
     itemName = document.getElementById(item + 'Name').innerText;
     itemPrice = document.getElementById(item + 'Price').innerText;
     itemQuantity = document.getElementById(item + 'Quant').value;
@@ -23,14 +26,20 @@ function removeFromCart(item) {
 // Save the cart to browser storage
 function saveCart() {
   localStorage.setItem('shoppingCart', JSON.stringify(cart));
+  localStorage.setItem('shoppingCartCounter', cartNumber);
 }
 
 // Load the cart from browser storage
 function loadCart() {
+  const storedCartCounter = localStorage.getItem('shoppingCartCounter');
   const storedCart = localStorage.getItem('shoppingCart');
   if (storedCart) {
     cart = JSON.parse(storedCart);
   }
+  if(storedCartCounter){
+    cartNumber = storedCartCounter;
+  }
+  document.getElementById("cartCounter").innerText = cartNumber;
 }
 
 // Initialize the cart when the page loads
@@ -38,7 +47,17 @@ window.onload = function () {
   loadCart();
 }
 
-
+function clearCart(){
+  cart = [];
+  localStorage.removeItem('shoppingCart');
+  localStorage.removeItem('shoppingCartCounter');
+}
+function clearCartRefresh(){
+  cart = [];
+  localStorage.removeItem('shoppingCart');
+  localStorage.removeItem('shoppingCartCounter');
+  location.reload();
+}
 
 function ticketWcart(){
     const cartItems = JSON.parse(localStorage.getItem('shoppingCart'));
