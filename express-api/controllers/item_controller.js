@@ -39,6 +39,7 @@ export const getItemCat = (req,res)=>{
         if (err) throw err;
         res.status(200).render('../views/categorySelect');
     })
+    connection.executeSql(request);
 };
 
 export const getComputers = (req,res)=>{
@@ -47,16 +48,9 @@ export const getComputers = (req,res)=>{
         // res.status(200).json(results.rows);
         res.status(200).render('../views/itemIndexComputer', { data: results.rows });
 
-    // tedious method
-
-    const request = new Request(tdqueries.getComputers, (err, rowCount, rows) => {
-        if (err) throw err;
-        res.status(200).render('../views/itemIndexComputer', { data: rows});
-
-        connection.execSql(request);
-    });
-
     })
+
+    // tedious method
 
     const request = new Request(tdqueries.getComputers, (err, rows)=>{
         if (err) throw err;
@@ -103,7 +97,7 @@ export const getSoftware = (req,res)=>{
     
     // tedious method
 
-    const request = new Request(tdqueries.getSoftware, (err, rows)=>{
+    const request = new Request(tdqueries.getSoftware, (err, rowCount, rows)=>{
         if (err) throw err;
         res.status(200).render('../views/itemIndexSoftware', { data : rows });
     })

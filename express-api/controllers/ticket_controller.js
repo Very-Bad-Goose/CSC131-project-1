@@ -3,6 +3,9 @@ import queries from '../models/ticket_queries.js';
 
 import Request from 'tedious';
 import connection from '../config/tedious_conn.js';
+import TYPES from 'tedious';
+
+import tdticket_queries from '../models/tdticket_queries.js';
 
 //CREATE
 //send the page/form for creating new
@@ -25,14 +28,14 @@ export const getTickets = (req,res)=>{
         if (error) throw error;
         // res.status(200).json(results.rows);
         res.status(200).render('../views/vtsTicketPage01', { data: results.rows });
-    })
+    });
 
     // tedious method
 
-    const request = new Request(queries.getTickets, (err, rowCount, rows)=>{
+    const request = new Request(tdticket_queries.getTickets, (err, rowCount, rows) => {
         if (err) throw err;
         res.status(200).render('../views/vtsTicketPage01', { data: rows });
-    })
+    });
     connection.execSql(request);
 };
 //specific ticket
@@ -44,6 +47,19 @@ export const getTicketByID = (req,res)=>{
         // res.status(200).json(results.rows);
         res.status(200).render('../views/vtsTicketPage02', { data: results.rows[0] });
     })
+
+    // tedious method
+
+    const request = new Request(tdticket_queries.getTicketByID, (err) => {
+        if (err) throw err;
+        const outputParamValue = request.parameters.OutputParam.value;
+        res.status(200).render('../views/vtsTicketPage02', { outputParamValue });
+    })
+
+    request.addParameter('id', TYPES.Int, id)
+    request.addOutputParameter('id', TYPES.Int)
+
+    connection.execSql(request);
 };
 //UPDATE
 //update page
