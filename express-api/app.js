@@ -44,5 +44,8 @@ app.get('/', (req,res)=>{
     // res.sendFile('vtsLanding.html', { root: __dirname });
     res.status(200).render('../views/categorySelect');
 });
+app.get('/admin', (req,res)=>{
+    res.status(200).render('../views/adminLogin');
+});
 
 app.listen(PORT,() => console.log(`server running on this port: http://localhost:${PORT}`));
