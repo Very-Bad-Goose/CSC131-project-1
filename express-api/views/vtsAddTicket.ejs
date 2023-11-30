@@ -1,6 +1,6 @@
 <%- include('header') %>
     <main>
-             <!-- Header-->
+        <!-- Header-->
         <header class="pt-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center">
@@ -37,29 +37,25 @@
                             </div>
                           </div>
                         </div>
-                        <!-- Text input -->
+                        <!-- hidden input for contents -->
+                        <div class="form-outline mb-4">
+                            <input type="hidden" class="form-control" id="contents" name="contents" placeholder="Enter contents">
+                        </div>
                         <div class="container mt-4">
-                            <table id="contentsTable" class="table table-bordered">
+                            <label for="contents">Contents</label>
+                            <table class="table table-bordered">
                               <thead>
                                 <tr>
+                                  <th>Item #</th>
                                   <th>Item Name</th>
                                   <th>Individual Price</th>
                                   <th>Quantity</th>
                                 </tr>
                               </thead>
-                              <tbody>
-                                <tr>
-                                  <td>Row 1, Col 1</td>
-                                  <td>Row 1, Col 2</td>
-                                  <td>Row 1, Col 3</td>
-                                </tr>
+                              <tbody id="contentsTable" >
                               </tbody>
                             </table>
                           </div>
-                        <div class="form-outline mb-4">
-                            <input type="text" class="form-control" id="contents" name="contents" placeholder="Enter contents">
-                            <label for="contents">contents</label>
-                        </div>
 
                         <!-- Number input -->
                         <div class="form-outline mb-4">
@@ -80,7 +76,7 @@
                     
                       
                         <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary btn-block mb-4">Send Request</button>
+                        <button type="submit" onclick="clearCart()" class="btn btn-primary btn-block mb-4">Send Request</button>
                       </form>
 
                     
@@ -133,27 +129,54 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
         <script>
+            function clearCart(){
+                    cart = [];
+                    localStorage.removeItem('shoppingCart');
+            }
             window.addEventListener('load', function() {
               // Retrieve form elements by their IDs
-              var nameField = document.getElementById('contents');
+              var contentsField = document.getElementById('contents');
               
               // Set default values for the form fields
-              nameField.value = ''
+              
               cartRaw = localStorage.getItem('shoppingCart');
               cartParsed = JSON.parse(cartRaw);
+              contentsField.value = cartRaw;
             const tableBody = document.getElementById('contentsTable');
                 cartParsed.forEach(obj => {
                     const row = document.createElement('tr');
                     
                     // Loop through each property in the object and create table cells
                     for (const prop in obj) {
-                    if (Object.prototype.hasOwnProperty.call(obj, prop)) {
-                        const cell = document.createElement('td');
-                        cell.textContent = obj[prop];
-                        row.appendChild(cell);
-                    }
+                        if (Object.prototype.hasOwnProperty.call(obj, prop)) {
+                            
+                            const cell = document.createElement('td');
+
+                            if (prop === 'itemQuantity') {
+                            cell.textContent = obj[prop];
+                            const anchor = document.createElement('a');
+                            anchor.href = '#'; // Set your URL or function for the anchor's href
+                            
+                            anchor.addEventListener('click', function(event) {
+                            event.preventDefault(); // Prevent the default action (e.g., following the link)
+                            // Add your functionality here
+                            console.log('Anchor clicked!');
+                            // You can perform other actions or call functions when the anchor is clicked
+                            });
+
+                            anchor.textContent = obj[prop];
+                            cell.appendChild(anchor);
+                            } else {
+                            cell.textContent = obj[prop];
+                            }
+
+
+
+
+
+                            row.appendChild(cell);
+                        }
                     }
                     
                     // Append the row to the table body

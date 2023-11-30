@@ -22,9 +22,9 @@
                     <% data.forEach(function(item) { %>
                         <div class="full-width">
                             <div class="card custom-card">
-                                <div class="image-container" style="height:200px; width:300px; overflow: hidden;">
-                                    <img class="card-img-top py-2 px-2" src="<%= assetPath %><%= item.imagepath %>" alt="Product Image" style="height:100%; width:100%; object-fit:cover;" />
-                                </div>
+                               
+                                <img class="card-img-top py-2 px-2" src="<%= assetPath %><%= item.imagepath %>" alt="Product Image" style="max-width: 250px;" />
+                              
                                 <div class="card-body p-4">
                                     <h6 class="card-text mb-1">Item ID: <%= item.id %></h6>
                                     <p class="card-title mb-1"><%= item.manufacturer %></p>
