@@ -21,22 +21,22 @@
     <h1 class="inventory-heading">Docks</h1>
     <div class="inventory-container">
         <div class="inventory">
-            <img src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/Dell%20WD19DC%20Dock.png?raw=true"
+            <img src="/Inventory Images/Dell WD19CD Dock.png"
                 alt="Dell WD19DC Dock">
             <h4>Dell WD19DC Dock</h4>
             <div class="add-to-cart-section">
-                <button class="add-to-cart-btn">Add to Cart</button>
+                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
                 <input type="number" class="quantity-input" placeholder="quantity" min="0">
             </div>
 
         </div>
 
         <div class="inventory">
-            <img src="https://github.com/Very-Bad-Goose/CSC131-project-1/blob/main/Inventory%20Images/Dell%20WD19DC%20Dock.png?raw=true"
+            <img src="/Inventory Images/Dell WD19S Dock.png"
                 alt="Dell WD19S Dock">
             <h4>Dell WD19S Dock</h4>
             <div class="add-to-cart-section">
-                <button class="add-to-cart-btn">Add to Cart</button>
+                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
                 <input type="number" class="quantity-input" placeholder="quantity" min="0">
             </div>
         </div>
@@ -44,5 +44,30 @@
     </div>
 
 </body>
+
+<script>
+    function addToCart(button) {
+        //retrieve data from correct item div
+        let itemDiv = button.closest('.inventory');
+        let quantity = parseInt(itemDiv.querySelector('.quantity-input').value);
+        let name = itemDiv.querySelector('h4').textContent;
+
+        //get exising cart
+        let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+
+        let existingItem = cart.find(item => item.name === name);
+        if (existingItem) {
+            existingItem.quantity += quantity;
+        } else if (quantity >= 1) {
+            let cartObj = {
+                name: name,
+                quantity: quantity
+            };
+            cart.push(cartObj)
+        }
+
+        sessionStorage.setItem('cart', JSON.stringify(cart));
+    }
+</script>
 
 </html>

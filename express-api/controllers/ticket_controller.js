@@ -2,6 +2,11 @@ import pool from '../config/postgres_conn.js';
 import queries from '../models/ticket_queries.js';
 
 
+import Request from 'tedious';
+import connection from '../config/tedious_conn.js';
+
+
+
 //send the confirmation page
 export const confirmation = (req,res)=>{
     res.status(200).render('../views/confirmation');
@@ -10,6 +15,7 @@ export const confirmation = (req,res)=>{
 export const adminConfirmation = (req,res)=>{
     res.status(200).render('../views/adminConfirmation');
 };
+
 //CREATE
 //send the page/form for creating new
 export const newTicket = (req,res)=>{
@@ -80,6 +86,14 @@ export const getTickets = (req,res)=>{
         // res.status(200).json(results.rows);
         res.status(200).render('../views/vtsTicketPage01', { data: results.rows });
     })
+
+    // tedious method
+
+    const request = new Request(queries.getTickets, (err, rowCount, rows)=>{
+        if (err) throw err;
+        res.status(200).render('../views/vtsTicketPage01', { data: rows });
+    })
+    connection.execSql(request);
 };
 //specific ticket
 export const getTicketByID = (req,res)=>{

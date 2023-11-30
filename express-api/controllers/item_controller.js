@@ -3,6 +3,9 @@
 import pool from '../config/postgres_conn.js';
 import queries from '../models/item_queries.js';
 
+import Request from 'tedious';
+import connection from '../config/tedious_conn.js';
+
 // export const getItems = (req,res)=>{
 //     console.log('getting all items');
 //     res.send(items);
@@ -14,7 +17,14 @@ export const getItems = (req,res)=>{
         // res.status(200).json(results.rows);
         res.status(200).render('../views/vtsItemPage01', { data: results.rows });
     })
-    
+
+    // tedious method
+
+    const request = new Request(queries.getItems, (err, rowCount, rows)=>{
+        if (err) throw err;
+        res.status(200).render('../views/vtsItemPage01', { data: rows });
+    })
+    connection.execSql(request);
 };
 export const getItemCat = (req,res)=>{
     res.status(200).render('../views/categorySelect');    
