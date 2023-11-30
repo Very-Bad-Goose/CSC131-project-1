@@ -38,17 +38,39 @@
       event.preventDefault();
 
       // Validate the username and password fields
-      var username = loginForm.querySelector('input[name="username"]').value;
       var password = loginForm.querySelector('input[name="password"]').value;
 
-      if (username === '' || password === '') {
+      if (password === '') {
         errorMessage.textContent = 'Please fill in all required fields.';
         return;
       }
+        // Make a POST request to authenticate
+        fetch('/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            username: password,
+          }),
+        })
+        .then(response => response.json())
+        .then(data => {
+          // Save the token in localStorage upon successful authentication
+          localStorage.setItem('authToken', data.token);
+          console.log('Token saved:', data.token);
+          window.location.href = '/tickets';
+        })
+        .catch(error => {
+          console.error('Authentication failed:', error);
+        });
 
-      // Submit the login form
-      loginForm.submit();
+
     });
+
+
+
+
   </script>
 </body>
 

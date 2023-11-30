@@ -13,7 +13,7 @@ router.get('/software', getSoftware);
 router.post('/', addItem);
 // router.get('/:id', getItem);
 // router.patch('/:id', updateItem);
-router.post('/del/:id', deleteItem);
+router.post('/delete', deleteItem);
 
 export default router;
 
