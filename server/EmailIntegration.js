@@ -21,7 +21,7 @@ const mail = {
   to: "joaquim.pedroza@vts-i.com", // list of receivers
   subject: "Vts Inventory Request", // Subject line
   text: "Vts Inventory Request Recieved?", // plain text body
-  html:getMessage(), // html body
+  html:"<p> VTS </p>", // html body
   // attachments: [
   // we can add tickets as a pdf here
   //   {
