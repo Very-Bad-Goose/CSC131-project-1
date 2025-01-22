@@ -8,7 +8,7 @@ Joaquim Pedroza
 
 Nishan Maharjan
 
-Harnoor Kaur
+Harnoor Kaur (Hanna Kaur)
 
 Francisco Ortiz
 
